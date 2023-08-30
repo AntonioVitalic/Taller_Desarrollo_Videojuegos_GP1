@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl0yl6u72jetu"]
+
+[ext_resource type="Texture2D" uid="uid://bsxkrrcw70num" path="res://assets/background/Glacial-mountains-parallax-background_vnitti_v3/Glacial-mountains-parallax-background_vnitti/background_glacial_mountains.png" id="1_y4c5d"]
+[ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_gslpt"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BackgroundGlacialMountains" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(3, 3)
+texture = ExtResource("1_y4c5d")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_gslpt")
+format = 2
+layer_0/tile_data = PackedInt32Array(1769476, 196609, 1, 1835012, 196609, 2, 1769477, 262145, 1, 1835013, 262145, 2, 1769478, 327681, 1, 1835014, 327681, 2, 1769479, 196609, 1, 1835015, 196609, 2, 1769480, 262145, 1, 1835016, 262145, 2, 1769481, 327681, 1, 1835017, 327681, 2, 1769486, 983041, 3, 1769487, 983041, 3, 1507347, 983041, 3, 1507346, 983041, 3, 1507352, 983041, 3, 1507353, 983041, 3, 1507358, 983041, 3, 1507359, 983041, 3, 852007, 196609, 1, 917543, 196609, 2, 852008, 262145, 1, 917544, 262145, 2, 852009, 327681, 1, 917545, 327681, 2)
