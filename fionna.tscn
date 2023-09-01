@@ -7,16 +7,16 @@
 radius = 30.0666
 
 [node name="Fionna" type="CharacterBody2D"]
-position = Vector2(-1, 0)
+position = Vector2(-54, -6)
 script = ExtResource("1_el4im")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(607, 278)
+position = Vector2(571, 271)
 shape = SubResource("CircleShape2D_voy15")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(606, 310)
-scale = Vector2(5.73437, 4.35714)
+position = Vector2(570, 270)
+scale = Vector2(2.25, 1.78571)
 texture = ExtResource("2_2iw2d")
 hframes = 4
-vframes = 3
+vframes = 4
