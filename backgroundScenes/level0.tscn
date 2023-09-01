@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cl0yl6u72jetu"]
+[gd_scene load_steps=6 format=3 uid="uid://cl0yl6u72jetu"]
 
 [ext_resource type="Texture2D" uid="uid://bsxkrrcw70num" path="res://assets/background/Glacial-mountains-parallax-background_vnitti_v3/Glacial-mountains-parallax-background_vnitti/background_glacial_mountains.png" id="1_y4c5d"]
 [ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_gslpt"]
 [ext_resource type="PackedScene" uid="uid://bmvdjelkyy5nc" path="res://fionna.tscn" id="3_10clk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_305ot"]
+size = Vector2(1179, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4u7i"]
+size = Vector2(20, 665)
 
 [node name="Node2D" type="Node2D"]
 
@@ -22,3 +28,24 @@ zoom = Vector2(1.5, 1.5)
 
 [node name="Fionna" parent="." instance=ExtResource("3_10clk")]
 position = Vector2(-83, 55)
+scale = Vector2(0.5, 0.5)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(579.5, -5)
+shape = SubResource("RectangleShape2D_305ot")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(568, 653)
+shape = SubResource("RectangleShape2D_305ot")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-10, 325)
+shape = SubResource("RectangleShape2D_t4u7i")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(1162, 327)
+shape = SubResource("RectangleShape2D_t4u7i")
