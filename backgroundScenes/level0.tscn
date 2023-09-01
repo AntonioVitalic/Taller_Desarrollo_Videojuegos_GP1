@@ -1,51 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl0yl6u72jetu"]
+[gd_scene load_steps=4 format=3 uid="uid://cl0yl6u72jetu"]
 
-[ext_resource type="Texture2D" uid="uid://bsxkrrcw70num" path="res://assets/background/Glacial-mountains-parallax-background_vnitti_v3/Glacial-mountains-parallax-background_vnitti/background_glacial_mountains.png" id="1_y4c5d"]
+[ext_resource type="PackedScene" uid="uid://rvkdxgbtcpvo" path="res://backgroundScenes/gameBackground.tscn" id="1_2xbol"]
 [ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_gslpt"]
 [ext_resource type="PackedScene" uid="uid://bmvdjelkyy5nc" path="res://fionna.tscn" id="3_10clk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_305ot"]
-size = Vector2(1179, 10)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4u7i"]
-size = Vector2(20, 665)
-
 [node name="Node2D" type="Node2D"]
 
-[node name="BackgroundGlacialMountains" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
-scale = Vector2(3, 3)
-texture = ExtResource("1_y4c5d")
+[node name="Node2D" parent="." instance=ExtResource("1_2xbol")]
 
 [node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(2, 2)
 tile_set = ExtResource("2_gslpt")
 format = 2
-layer_0/tile_data = PackedInt32Array(1769476, 196609, 1, 1835012, 196609, 2, 1769477, 262145, 1, 1835013, 262145, 2, 1769478, 327681, 1, 1835014, 327681, 2, 1769479, 196609, 1, 1835015, 196609, 2, 1769480, 262145, 1, 1835016, 262145, 2, 1769481, 327681, 1, 1835017, 327681, 2, 1769486, 983041, 3, 1769487, 983041, 3, 1507347, 983041, 3, 1507346, 983041, 3, 1507352, 983041, 3, 1507353, 983041, 3, 1507358, 983041, 3, 1507359, 983041, 3, 852007, 196609, 1, 917543, 196609, 2, 852008, 262145, 1, 917544, 262145, 2, 852009, 327681, 1, 917545, 327681, 2)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(400, 300)
-zoom = Vector2(1.5, 1.5)
+layer_0/tile_data = PackedInt32Array(1572874, 196609, 1, 1638410, 196609, 2, 1572875, 262145, 1, 1638411, 262145, 2, 1572876, 327681, 1, 1638412, 327681, 2, 1572877, 196609, 1, 1638413, 196609, 2, 1572878, 262145, 1, 1638414, 262145, 2, 1572879, 327681, 1, 1638415, 327681, 2, 1572884, 983041, 3, 1572885, 983041, 3, 1310744, 983041, 3, 1310745, 983041, 3, 1310750, 983041, 3, 1310751, 983041, 3, 1310756, 983041, 3, 1310757, 983041, 3, 655405, 196609, 1, 720941, 196609, 2, 655406, 262145, 1, 720942, 262145, 2, 655407, 327681, 1, 720943, 327681, 2)
 
 [node name="Fionna" parent="." instance=ExtResource("3_10clk")]
-position = Vector2(-83, 55)
-scale = Vector2(0.5, 0.5)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(579.5, -5)
-shape = SubResource("RectangleShape2D_305ot")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(568, 653)
-shape = SubResource("RectangleShape2D_305ot")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(-10, 325)
-shape = SubResource("RectangleShape2D_t4u7i")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(1162, 327)
-shape = SubResource("RectangleShape2D_t4u7i")
+position = Vector2(-8, 424)
+scale = Vector2(0.7, 0.7)
