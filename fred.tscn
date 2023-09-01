@@ -1,12 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b60ct8smlpe8t"]
+[gd_scene load_steps=3 format=3 uid="uid://b60ct8smlpe8t"]
 
-[ext_resource type="Texture2D" uid="uid://dbn8o332fnbud" path="res://assets/rana_fred/ToxicFrog/GreenBlue/ToxicFrogGreenBlue_Attack.png" id="1_mvflg"]
+[ext_resource type="Texture2D" uid="uid://dbn8o332fnbud" path="res://assets/rana_fred/ToxicFrog/GreenBlue/GreenBlue/ToxicFrogGreenBlue_Attack.png" id="1_mvflg"]
+[ext_resource type="Script" path="res://fred.gd" id="1_rscxi"]
 
 [node name="Fred" type="CharacterBody2D"]
+script = ExtResource("1_rscxi")
 
 [node name="Ataque" type="Sprite2D" parent="."]
 texture = ExtResource("1_mvflg")
 hframes = 6
-frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
