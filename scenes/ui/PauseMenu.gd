@@ -24,9 +24,11 @@ func _input(event: InputEvent) -> void:
 	
 func _on_resume_pressed():
 	hide()
+	get_tree().paused = false
 
 func _on_restart_pressed():
 	get_tree().reload_current_scene()
+	get_tree().paused = false
 	
 func _on_settings_pressed():
 	pass
@@ -35,6 +37,7 @@ func _on_menu_pressed():
 	if not main_menu:
 		return
 	get_tree().change_scene_to_packed(main_menu)
+	get_tree().paused = false
 	
 func _on_quit_pressed():
 	get_tree().quit()

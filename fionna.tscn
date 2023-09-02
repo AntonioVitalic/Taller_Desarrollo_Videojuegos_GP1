@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmvdjelkyy5nc"]
+[gd_scene load_steps=8 format=3 uid="uid://bmvdjelkyy5nc"]
 
 [ext_resource type="Script" path="res://fionna.gd" id="1_el4im"]
 [ext_resource type="Texture2D" uid="uid://oc21i1d4efqs" path="res://assets/Animated insect enemy assets/BeetleMove.png" id="2_2iw2d"]
+[ext_resource type="PackedScene" uid="uid://daydnrlr4feio" path="res://scenes/ui/PauseMenu.tscn" id="3_7ejae"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_voy15"]
 radius = 30.0666
@@ -64,3 +65,7 @@ vframes = 4
 libraries = {
 "": SubResource("AnimationLibrary_rpuup")
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_7ejae")]

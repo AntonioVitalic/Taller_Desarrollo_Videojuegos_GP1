@@ -1,16 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://daydnrlr4feio"]
 
-[ext_resource type="Script" path="res://scenes/ui/pause_menu.gd" id="1_jw7bg"]
-[ext_resource type="PackedScene" uid="uid://de162qjng0dqa" path="res://scenes/ui/MainMenu.tscn" id="2_oa72j"]
+[ext_resource type="Script" path="res://scenes/ui/PauseMenu.gd" id="1_e0h05"]
+[ext_resource type="PackedScene" uid="uid://de162qjng0dqa" path="res://scenes/ui/MainMenu.tscn" id="2_gg1sq"]
 
 [node name="PauseMenu" type="MarginContainer"]
+process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_jw7bg")
-main_menu = ExtResource("2_oa72j")
+script = ExtResource("1_e0h05")
+main_menu = ExtResource("2_gg1sq")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
