@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://fionna.gd" id="1_el4im"]
 [ext_resource type="Texture2D" uid="uid://oc21i1d4efqs" path="res://assets/Animated insect enemy assets/BeetleMove.png" id="2_2iw2d"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_voy15"]
-radius = 30.0666
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7pw3"]
+size = Vector2(37, 32)
 
 [sub_resource type="Animation" id="Animation_knivw"]
 length = 0.001
@@ -134,8 +134,8 @@ position = Vector2(-54, -6)
 script = ExtResource("1_el4im")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(571, 271)
-shape = SubResource("CircleShape2D_voy15")
+position = Vector2(570.5, 270)
+shape = SubResource("RectangleShape2D_o7pw3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_repeat = 2
