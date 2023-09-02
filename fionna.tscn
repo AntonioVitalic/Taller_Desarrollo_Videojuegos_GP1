@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmvdjelkyy5nc"]
+[gd_scene load_steps=17 format=3 uid="uid://bmvdjelkyy5nc"]
 
 [ext_resource type="Script" path="res://fionna.gd" id="1_el4im"]
 [ext_resource type="Texture2D" uid="uid://oc21i1d4efqs" path="res://assets/Animated insect enemy assets/BeetleMove.png" id="2_2iw2d"]
 [ext_resource type="PackedScene" uid="uid://daydnrlr4feio" path="res://scenes/ui/PauseMenu.tscn" id="3_7ejae"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_voy15"]
-radius = 30.0666
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7pw3"]
+size = Vector2(37, 32)
 
 [sub_resource type="Animation" id="Animation_knivw"]
 length = 0.001
@@ -22,9 +22,8 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_7x4mk"]
-resource_name = "idle"
-length = 0.8
+[sub_resource type="Animation" id="Animation_vwijs"]
+length = 0.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -33,25 +32,111 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1, 3]
+}
+
+[sub_resource type="Animation" id="Animation_7x4mk"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_86j5g"]
+resource_name = "y_movement"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 12, 13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_seu1n"]
+resource_name = "x_movement"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 5, 6, 7]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rpuup"]
 _data = {
 "RESET": SubResource("Animation_knivw"),
-"idle": SubResource("Animation_7x4mk")
+"down_movement": SubResource("Animation_vwijs"),
+"idle": SubResource("Animation_7x4mk"),
+"up_movement": SubResource("Animation_86j5g"),
+"x_movement": SubResource("Animation_seu1n")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6dxqk"]
+animation = &"down_movement"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6k8j0"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yscuw"]
+animation = &"up_movement"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t28dc"]
+animation = &"x_movement"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_luxot"]
+reset = false
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aa1uy"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_iuroo"]
+states/End/position = Vector2(875, 76)
+states/Start/position = Vector2(-4, 76)
+states/down_movement/node = SubResource("AnimationNodeAnimation_6dxqk")
+states/down_movement/position = Vector2(418, 226)
+states/idle/node = SubResource("AnimationNodeAnimation_6k8j0")
+states/idle/position = Vector2(162, 76)
+states/up_movement/node = SubResource("AnimationNodeAnimation_yscuw")
+states/up_movement/position = Vector2(418, -41)
+states/x_movement/node = SubResource("AnimationNodeAnimation_t28dc")
+states/x_movement/position = Vector2(418, 76)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_luxot"), "idle", "up_movement", SubResource("AnimationNodeStateMachineTransition_aa1uy")]
+graph_offset = Vector2(-139.876, -69)
 
 [node name="Fionna" type="CharacterBody2D"]
 position = Vector2(-54, -6)
 script = ExtResource("1_el4im")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(571, 271)
-shape = SubResource("CircleShape2D_voy15")
+position = Vector2(570.5, 270)
+shape = SubResource("RectangleShape2D_o7pw3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_repeat = 2
@@ -65,6 +150,10 @@ vframes = 4
 libraries = {
 "": SubResource("AnimationLibrary_rpuup")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_iuroo")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
