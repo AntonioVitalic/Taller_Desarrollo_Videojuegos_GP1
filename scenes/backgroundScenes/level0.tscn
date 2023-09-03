@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cl0yl6u72jetu"]
+[gd_scene load_steps=5 format=3 uid="uid://cl0yl6u72jetu"]
 
-[ext_resource type="PackedScene" uid="uid://rvkdxgbtcpvo" path="res://backgroundScenes/gameBackground.tscn" id="1_2xbol"]
+[ext_resource type="PackedScene" uid="uid://rvkdxgbtcpvo" path="res://scenes/backgroundScenes/gameBackground.tscn" id="1_2xbol"]
 [ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_gslpt"]
 [ext_resource type="PackedScene" uid="uid://bmvdjelkyy5nc" path="res://fionna.tscn" id="3_10clk"]
+[ext_resource type="PackedScene" uid="uid://b60ct8smlpe8t" path="res://fred.tscn" id="4_vxs2m"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -17,3 +18,6 @@ layer_0/tile_data = PackedInt32Array(1572874, 196609, 1, 1638410, 196609, 2, 157
 [node name="Fionna" parent="." instance=ExtResource("3_10clk")]
 position = Vector2(-8, 424)
 scale = Vector2(0.7, 0.7)
+
+[node name="Fred" parent="." instance=ExtResource("4_vxs2m")]
+position = Vector2(401, 758)
