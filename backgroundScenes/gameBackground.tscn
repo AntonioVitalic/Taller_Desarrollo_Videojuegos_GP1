@@ -1,6 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://rvkdxgbtcpvo"]
 
+<<<<<<< Updated upstream:backgroundScenes/gameBackground.tscn
 [ext_resource type="Texture2D" uid="uid://l8gep8q8l2x" path="res://assets/background/Glacial-mountains-parallax-background_vnitti_v3/Glacial-mountains-parallax-background_vnitti/background_glacial_mountains.png" id="1_rgf8s"]
+=======
+[ext_resource type="Texture2D" uid="uid://dv5jgfkxf6t5p" path="res://assets/background/Glacial-mountains-parallax-background_vnitti_v3/Glacial-mountains-parallax-background_vnitti/background_glacial_mountains.png" id="1_rgf8s"]
+>>>>>>> Stashed changes:scenes/backgroundScenes/gameBackground.tscn
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h83b8"]
 size = Vector2(1938, 10)

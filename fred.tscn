@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://fred.gd" id="1_rscxi"]
 
 [node name="Fred" type="CharacterBody2D"]
+position = Vector2(116, 72)
 script = ExtResource("1_rscxi")
 
 [node name="Ataque" type="Sprite2D" parent="."]
@@ -11,3 +12,11 @@ texture = ExtResource("1_mvflg")
 hframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+<<<<<<< Updated upstream
+=======
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-2.5, 1)
+shape = SubResource("RectangleShape2D_n7dy7")
+>>>>>>> Stashed changes
