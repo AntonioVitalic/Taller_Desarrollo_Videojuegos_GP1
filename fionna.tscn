@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmvdjelkyy5nc"]
+[gd_scene load_steps=18 format=3 uid="uid://bmvdjelkyy5nc"]
 
 [ext_resource type="Script" path="res://fionna.gd" id="1_el4im"]
 [ext_resource type="Texture2D" uid="uid://oc21i1d4efqs" path="res://assets/Animated insect enemy assets/BeetleMove.png" id="2_2iw2d"]
