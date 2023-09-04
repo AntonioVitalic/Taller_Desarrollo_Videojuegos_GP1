@@ -1,10 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://b60ct8smlpe8t"]
+[gd_scene load_steps=6 format=3 uid="uid://b60ct8smlpe8t"]
 
 [ext_resource type="Script" path="res://fred.gd" id="1_rscxi"]
-[ext_resource type="Texture2D" uid="uid://ot283saeqp13" path="res://assets/rana_fred/ToxicFrog/GreenBlue/ToxicFrogGreenBlue_Idle.png" id="2_d0sdr"]
+[ext_resource type="Texture2D" uid="uid://cd681haselnha" path="res://ToxicFrogGreenBlue_Sheet.png" id="2_ngotd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7dy7"]
 size = Vector2(21, 16)
+
+[sub_resource type="Animation" id="Animation_s2ixv"]
+resource_name = "shoot_tongue"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k8ahv"]
+_data = {
+"shoot_tongue": SubResource("Animation_s2ixv")
+}
 
 [node name="Fred" type="CharacterBody2D"]
 script = ExtResource("1_rscxi")
@@ -13,11 +21,15 @@ script = ExtResource("1_rscxi")
 shape = SubResource("RectangleShape2D_n7dy7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3, -1)
-scale = Vector2(0.979167, 0.9875)
-texture = ExtResource("2_d0sdr")
+position = Vector2(17, 0)
+texture = ExtResource("2_ngotd")
 hframes = 8
+vframes = 5
+frame = 20
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k8ahv")
+}
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
