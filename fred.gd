@@ -1,21 +1,27 @@
 extends CharacterBody2D
-
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const SWING_FORCE = 1000.0
 const MAX_SWING_ANGLE = 60.0
 var isSwinging = false
 var swingAttachmentPoint = Vector2.ZERO
+@onready var sprite_2d = $Sprite2D
+@onready var animation_player = $AnimationPlayer
+@onready var animation_tree = $AnimationTree
+@onready var playback = animation_tree.get("parameters/playback")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 # var velocity = Vector2()
 
+func _ready() -> void:
+	animation_tree.active = true
+	
 func _physics_process(delta):
 	# Handle input and tongue shooting
 	if Input.is_action_just_pressed("shoot_tongue"):
 		shootTongue(get_global_mouse_position())
+		playback.travel("shoot_tongue")
 
 	# Apply tongue swinging physics if swinging
 	if isSwinging:
@@ -29,6 +35,7 @@ func _physics_process(delta):
 		if abs(currentAngle) > MAX_SWING_ANGLE:
 			isSwinging = false
 			releaseTongue()
+	move_and_slide()
 
 func shootTongue(targetPosition):
 	if !isSwinging:
