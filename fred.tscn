@@ -91,6 +91,7 @@ states/shoot_tongue/position = Vector2(515, 67)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_8p2vf"), "idle", "shoot_tongue", SubResource("AnimationNodeStateMachineTransition_bdnrp"), "shoot_tongue", "idle", SubResource("AnimationNodeStateMachineTransition_snuba")]
 
 [node name="Fred" type="CharacterBody2D"]
+position = Vector2(116, 72)
 script = ExtResource("1_rscxi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
