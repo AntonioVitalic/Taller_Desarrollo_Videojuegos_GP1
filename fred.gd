@@ -1,61 +1,83 @@
 extends CharacterBody2D
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-const SWING_FORCE = 1000.0
-const MAX_SWING_ANGLE = 60.0
-var isSwinging = false
-var swingAttachmentPoint = Vector2.ZERO
-@onready var sprite_2d = $Sprite2D
-@onready var animation_player = $AnimationPlayer
-@onready var animation_tree = $AnimationTree
-@onready var playback = animation_tree.get("parameters/playback")
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-# var velocity = Vector2()
+const JUMP_FORCE = 1550			# Force applied on jumping
+const MOVE_SPEED = 500			# Speed to walk with
+const GRAVITY = 60				# Gravity applied every second
+const MAX_SPEED = 2000			# Maximum speed the player is allowed to move
+const FRICTION_AIR = 0.95		# The friction while airborne
+const FRICTION_GROUND = 0.85	# The friction while on the ground
+const CHAIN_PULL = 105
 
-func _ready() -> void:
-	animation_tree.active = true
-	
-func _physics_process(delta):
-	# Handle input and tongue shooting
-	if Input.is_action_just_pressed("shoot_tongue"):
-		shootTongue(get_global_mouse_position())
-		playback.travel("shoot_tongue")
+var speed = Vector2(0,0)		# The speed of the player (kept over time)
+var chain_speed := Vector2(0,0)
+var can_jump = false			# Whether the player used their air-jump
 
-	# Apply tongue swinging physics if swinging
-	if isSwinging:
-		var directSpaceState = PhysicsServer2D.space_get_direct_state(get_world_2d().space)
-		var swingDirection = (swingAttachmentPoint - global_position).normalized()
-		var swingForce = swingDirection * SWING_FORCE * delta
-		directSpaceState.apply_impulse(global_position, swingForce)
 
-		# Limit the swing angle to make it feel more realistic
-		var currentAngle = swingDirection.angle_to(Vector2.UP)
-		if abs(currentAngle) > MAX_SWING_ANGLE:
-			isSwinging = false
-			releaseTongue()
-	move_and_slide()
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.pressed:
+			# We clicked the mouse -> shoot()
+			$Chain.shoot(event.position - get_viewport().size * 0.5)
+		else:
+			# We released the mouse -> release()
+			$Chain.release()
 
-func shootTongue(targetPosition):
-	if !isSwinging:
-		var ray = RayCast2D.new()
-		add_child(ray)
-		
-		# Configure the ray
-		ray.enabled = true
-		ray.global_position = global_position
-		ray.look_at(targetPosition)
-		
-		if ray.is_colliding():
-			var rayResult = ray.get_collision_point()
-			isSwinging = true
-			swingAttachmentPoint = rayResult
-			swingAttachmentPoint.y = global_position.y  # Lock the Y coordinate
-			
-		
-		# Remove the ray when done
-		ray.queue_free()
+# This function is called every physics frame
+func _physics_process(_delta: float) -> void:
+	# Walking
+	var walk = (Input.get_action_strength("right") - Input.get_action_strength("left")) * MOVE_SPEED
 
-func releaseTongue():
-	isSwinging = false
+	# Falling
+	speed.y += GRAVITY
+
+	# Hook physics
+	if $Chain.hooked:
+		# `to_local($Chain.tip).normalized()` is the direction that the chain is pulling
+		chain_speed = to_local($Chain.tip).normalized() * CHAIN_PULL
+		if chain_speed.y > 0:
+			# Pulling down isn't as strong
+			chain_speed.y *= 0.55
+		else:
+			# Pulling up is stronger
+			chain_speed.y *= 1.65
+		if sign(chain_speed.x) != sign(walk):
+			# if we are trying to walk in a different
+			# direction than the chain is pulling
+			# reduce its pull
+			chain_speed.x *= 0.7
+	else:
+		# Not hooked -> no chain speed
+		chain_speed = Vector2(0,0)
+	speed += chain_speed
+
+	speed.x += walk		# apply the walking
+	move_and_slide()	# Actually apply all the forces
+	speed.x -= walk		# take away the walk speed again
+	# ^ This is done so we don't build up walk speed over time
+
+	# Manage friction and refresh jump and stuff
+	speed.y = clamp(speed.y, -MAX_SPEED, MAX_SPEED)	# Make sure we are in our limits
+	speed.x = clamp(speed.x, -MAX_SPEED, MAX_SPEED)
+	var grounded = is_on_floor()
+	if grounded:
+		speed.x *= FRICTION_GROUND	# Apply friction only on x (we are not moving on y anyway)
+		can_jump = true 				# We refresh our air-jump
+		if speed.y >= 5:		# Keep the y-speed small such that
+			speed.y = 5		# gravity doesn't make this number huge
+	elif is_on_ceiling() and speed.y <= -5:	# Same on ceilings
+		speed.y = -5
+
+	# Apply air friction
+	if !grounded:
+		speed.x *= FRICTION_AIR
+		if speed.y > 0:
+			speed.y *= FRICTION_AIR
+
+	# Jumping
+	if Input.is_action_just_pressed("jump"):
+		if grounded:
+			speed.y = -JUMP_FORCE	# Apply the jump-force
+		elif can_jump:
+			can_jump = false	# Used air-jump
+			speed.y = -JUMP_FORCE
+
