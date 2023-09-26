@@ -1,0 +1,115 @@
+[gd_scene load_steps=15 format=3 uid="uid://b60ct8smlpe8t"]
+
+[ext_resource type="Script" path="res://fred.gd" id="1_rscxi"]
+[ext_resource type="Texture2D" uid="uid://ot283saeqp13" path="res://assets/rana_fred/ToxicFrog/GreenBlue/ToxicFrogGreenBlue_Idle.png" id="2_ujs54"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="3_553eo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7dy7"]
+size = Vector2(21, 16)
+
+[sub_resource type="Animation" id="Animation_b1v6p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8hpk4"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s2ixv"]
+resource_name = "shoot_tongue"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k8ahv"]
+_data = {
+"RESET": SubResource("Animation_b1v6p"),
+"idle": SubResource("Animation_8hpk4"),
+"shoot_tongue": SubResource("Animation_s2ixv")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hkisj"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_561qv"]
+animation = &"shoot_tongue"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8p2vf"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bdnrp"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_snuba"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7t762"]
+states/idle/node = SubResource("AnimationNodeAnimation_hkisj")
+states/idle/position = Vector2(374, 33)
+states/shoot_tongue/node = SubResource("AnimationNodeAnimation_561qv")
+states/shoot_tongue/position = Vector2(515, 67)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_8p2vf"), "idle", "shoot_tongue", SubResource("AnimationNodeStateMachineTransition_bdnrp"), "shoot_tongue", "idle", SubResource("AnimationNodeStateMachineTransition_snuba")]
+
+[node name="Fred" type="CharacterBody2D"]
+position = Vector2(116, 72)
+script = ExtResource("1_rscxi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_n7dy7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ujs54")
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k8ahv")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_7t762")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_553eo")

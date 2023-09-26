@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0hc2367x8n47"]
+
+[ext_resource type="Script" path="res://tongue.gd" id="1_gm8cd"]
+[ext_resource type="Texture2D" uid="uid://cf3vymmn0bx3i" path="res://assets/rana_fred/linkc.png" id="1_ihfwm"]
+[ext_resource type="Texture2D" uid="uid://bhgye6p04qb6x" path="res://assets/rana_fred/hookc.png" id="2_as6c6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nc8wa"]
+radius = 6.0
+
+[node name="Tongue" type="Node2D"]
+script = ExtResource("1_gm8cd")
+
+[node name="Links" type="Sprite2D" parent="."]
+texture = ExtResource("1_ihfwm")
+centered = false
+offset = Vector2(-8, 14)
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 360)
+
+[node name="Tip" type="CharacterBody2D" parent="."]
+collision_layer = 4
+
+[node name="Hook" type="Sprite2D" parent="Tip"]
+texture_repeat = 2
+texture = ExtResource("2_as6c6")
+offset = Vector2(0, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tip"]
+position = Vector2(0, 20)
+shape = SubResource("CapsuleShape2D_nc8wa")
