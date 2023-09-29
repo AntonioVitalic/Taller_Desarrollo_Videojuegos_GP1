@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://trt188mo8hbs"]
+
+[ext_resource type="PackedScene" uid="uid://rvkdxgbtcpvo" path="res://scenes/backgroundScenes/gameBackground.tscn" id="1_mre7s"]
+[ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_dhbtt"]
+[ext_resource type="PackedScene" uid="uid://bmvdjelkyy5nc" path="res://fionna.tscn" id="3_yc7m1"]
+[ext_resource type="PackedScene" uid="uid://b60ct8smlpe8t" path="res://fred.tscn" id="4_qwb61"]
+[ext_resource type="PackedScene" uid="uid://b0hc2367x8n47" path="res://tongue.tscn" id="5_k2hqb"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node2D" parent="." instance=ExtResource("1_mre7s")]
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(2, 2)
+tile_set = ExtResource("2_dhbtt")
+format = 2
+layer_0/tile_data = PackedInt32Array(1310720, 589825, 3, 1310721, 655361, 3, 1310722, 655361, 3, 1310723, 655361, 3, 1310724, 655361, 3, 1310727, 655361, 3, 1310726, 655361, 3, 1310725, 655361, 3, 1310728, 655361, 3, 1310729, 655361, 3, 1310730, 655361, 3, 1310731, 655361, 3, 1310732, 655361, 3, 1310733, 655361, 3, 1376271, 720897, 5, 1310735, 720897, 2, 1310736, 589825, 3, 1310737, 655361, 3, 1245199, 720897, 1, 1310739, 786433, 3, 1310740, 851969, 3, 1310738, 786433, 3, 1310734, 851969, 3, 1376279, 262145, 1, 1441815, 262145, 2, 1441814, 196609, 2, 1376278, 196609, 1, 1376280, 327681, 1, 1441816, 327681, 2, 1441820, 196609, 2, 1441821, 262145, 2, 1376286, 327681, 1, 1376285, 262145, 1, 1376284, 196609, 1, 1441822, 327681, 2, 1441826, 196609, 2, 1441827, 262145, 2, 1376291, 262145, 1, 1376292, 327681, 1, 1441828, 327681, 2, 1376290, 196609, 1, 1245216, 720897, 5, 1179680, 720897, 2, 1114144, 720897, 2, 1048608, 720897, 2, 983072, 720897, 2, 917536, 720897, 2, 852000, 720897, 2, 786464, 720897, 2, 720928, 720897, 1, 1638419, 327681, 2, 1638418, 262145, 2, 1638417, 196609, 2, 1572881, 196609, 1, 1572882, 262145, 1, 1572883, 327681, 1, 1572877, 327681, 1, 1638412, 262145, 2, 1638411, 196609, 2, 1638413, 327681, 2, 1572876, 262145, 1, 1572875, 196609, 1)
+
+[node name="Fionna" parent="." instance=ExtResource("3_yc7m1")]
+position = Vector2(86, 507)
+scale = Vector2(0.7, 0.7)
+
+[node name="Fred" parent="." instance=ExtResource("4_qwb61")]
+position = Vector2(401, 758)
+
+[node name="Tongue" parent="Fred" instance=ExtResource("5_k2hqb")]
