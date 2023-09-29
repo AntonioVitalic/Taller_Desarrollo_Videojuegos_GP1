@@ -1,14 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqruvxs3nu7kr"]
+[gd_scene load_steps=5 format=3 uid="uid://bqruvxs3nu7kr"]
 
-[ext_resource type="PackedScene" uid="uid://rvkdxgbtcpvo" path="res://scenes/backgroundScenes/gameBackground.tscn" id="1_mfmhw"]
 [ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_j4li6"]
 [ext_resource type="PackedScene" uid="uid://bmvdjelkyy5nc" path="res://fionna.tscn" id="3_mh3y0"]
 [ext_resource type="PackedScene" uid="uid://b60ct8smlpe8t" path="res://fred.tscn" id="4_41xsl"]
 [ext_resource type="PackedScene" uid="uid://b0hc2367x8n47" path="res://tongue.tscn" id="5_1mfqu"]
 
 [node name="Node2D" type="Node2D"]
-
-[node name="Node2D" parent="." instance=ExtResource("1_mfmhw")]
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2, 2)
