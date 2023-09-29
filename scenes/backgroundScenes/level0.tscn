@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl0yl6u72jetu"]
+[gd_scene load_steps=7 format=3 uid="uid://cl0yl6u72jetu"]
 
 [ext_resource type="PackedScene" uid="uid://rvkdxgbtcpvo" path="res://scenes/backgroundScenes/gameBackground.tscn" id="1_2xbol"]
 [ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_gslpt"]
 [ext_resource type="PackedScene" uid="uid://bmvdjelkyy5nc" path="res://fionna.tscn" id="3_10clk"]
 [ext_resource type="PackedScene" uid="uid://b60ct8smlpe8t" path="res://fred.tscn" id="4_vxs2m"]
 [ext_resource type="PackedScene" uid="uid://b0hc2367x8n47" path="res://tongue.tscn" id="5_2nrhl"]
+[ext_resource type="PackedScene" uid="uid://c2bvxyf85c6ok" path="res://scenes/MovingPlatform.tscn" id="6_mambb"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -24,3 +25,6 @@ scale = Vector2(0.7, 0.7)
 position = Vector2(401, 758)
 
 [node name="Tongue" parent="Fred" instance=ExtResource("5_2nrhl")]
+
+[node name="MovingPlatform" parent="." instance=ExtResource("6_mambb")]
+position = Vector2(176, 776)
