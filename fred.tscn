@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://b60ct8smlpe8t"]
+[gd_scene load_steps=16 format=3 uid="uid://b60ct8smlpe8t"]
 
 [ext_resource type="Script" path="res://fred.gd" id="1_rscxi"]
 [ext_resource type="Texture2D" uid="uid://ot283saeqp13" path="res://assets/rana_fred/ToxicFrog/GreenBlue/ToxicFrogGreenBlue_Idle.png" id="2_ujs54"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="3_553eo"]
+[ext_resource type="PackedScene" uid="uid://rvkdxgbtcpvo" path="res://scenes/backgroundScenes/gameBackground.tscn" id="4_215sd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7dy7"]
 size = Vector2(21, 16)
@@ -113,3 +114,10 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_553eo")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Camera2D"]
+scroll_limit_end = Vector2(1920, 1080)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+
+[node name="Node2D" parent="Camera2D/ParallaxBackground/ParallaxLayer" instance=ExtResource("4_215sd")]

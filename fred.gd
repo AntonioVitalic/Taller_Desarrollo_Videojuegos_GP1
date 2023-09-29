@@ -7,6 +7,7 @@ const MAX_SPEED = 2000			# Maximum speed the player is allowed to move
 const FRICTION_AIR = 0.95		# The friction while airborne
 const FRICTION_GROUND = 0.85	# The friction while on the ground
 const Tongue_PULL = 105
+@onready var camera= $Camera2D
 
 var speed = Vector2(0,0)		# The speed of the player (kept over time)
 var Tongue_speed := Vector2(0,0)
@@ -81,4 +82,10 @@ func _physics_process(_delta: float) -> void:
 		elif can_jump:
 			can_jump = false	# Used air-jump
 			speed.y = -JUMP_FORCE
+
+func set_camera_margins(sup_left, inf_right):
+	camera.limit_top = sup_left.y
+	camera.limit_bottom = inf_right.y
+	camera.limit_left = sup_left.x
+	camera.limit_right = inf_right.x
 
