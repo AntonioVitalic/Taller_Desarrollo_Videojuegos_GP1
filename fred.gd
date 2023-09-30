@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Fred
 
 const JUMP_FORCE = 1550			# Force applied on jumping
 const MOVE_SPEED = 500			# Speed to walk with

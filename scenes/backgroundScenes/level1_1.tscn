@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbeonulhxd7po"]
+[gd_scene load_steps=6 format=3 uid="uid://bbeonulhxd7po"]
 
 [ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_ajrgt"]
 [ext_resource type="PackedScene" uid="uid://bmvdjelkyy5nc" path="res://fionna.tscn" id="3_2kmmk"]
 [ext_resource type="PackedScene" uid="uid://b60ct8smlpe8t" path="res://fred.tscn" id="4_3mbr2"]
 [ext_resource type="PackedScene" uid="uid://b0hc2367x8n47" path="res://tongue.tscn" id="5_uocio"]
+[ext_resource type="PackedScene" uid="uid://5h3a0grtuw0e" path="res://scenes/Interactables/coin.tscn" id="5_uw3d0"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -21,3 +22,17 @@ scale = Vector2(0.7, 0.7)
 position = Vector2(401, 758)
 
 [node name="Tongue" parent="Fred" instance=ExtResource("5_uocio")]
+
+[node name="CoinHolder" type="Node2D" parent="."]
+
+[node name="Coin" parent="CoinHolder" instance=ExtResource("5_uw3d0")]
+position = Vector2(622, 753)
+
+[node name="Coin2" parent="CoinHolder" instance=ExtResource("5_uw3d0")]
+position = Vector2(643, 753)
+
+[node name="Coin3" parent="CoinHolder" instance=ExtResource("5_uw3d0")]
+position = Vector2(665, 753)
+
+[node name="Coin4" parent="CoinHolder" instance=ExtResource("5_uw3d0")]
+position = Vector2(687, 753)

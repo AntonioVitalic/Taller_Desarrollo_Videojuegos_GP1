@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Fionna
 var speed = 400
 var acceleration = 10000
 @onready var animation_player = $AnimationPlayer
