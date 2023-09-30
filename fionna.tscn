@@ -1,8 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://bmvdjelkyy5nc"]
+[gd_scene load_steps=17 format=3 uid="uid://bmvdjelkyy5nc"]
 
 [ext_resource type="Script" path="res://fionna.gd" id="1_el4im"]
 [ext_resource type="Texture2D" uid="uid://oc21i1d4efqs" path="res://assets/Animated insect enemy assets/BeetleMove.png" id="2_2iw2d"]
-[ext_resource type="PackedScene" uid="uid://daydnrlr4feio" path="res://scenes/ui/PauseMenu.tscn" id="3_7ejae"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o7pw3"]
 size = Vector2(37, 32)
@@ -12,7 +11,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Pivot/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -28,7 +27,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Pivot/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -45,7 +44,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Pivot/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -62,7 +61,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Pivot/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -74,16 +73,15 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_seu1n"]
 resource_name = "x_movement"
-length = 0.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Pivot/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [4, 5, 5, 6, 7]
@@ -131,20 +129,11 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-139.876, -69)
 
 [node name="Fionna" type="CharacterBody2D"]
-position = Vector2(-54, -6)
+position = Vector2(-1, -1)
 script = ExtResource("1_el4im")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(570.5, 270)
 shape = SubResource("RectangleShape2D_o7pw3")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_repeat = 2
-position = Vector2(570, 270)
-scale = Vector2(2.25, 1.78571)
-texture = ExtResource("2_2iw2d")
-hframes = 4
-vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -155,6 +144,11 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_iuroo")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Pivot" type="Node2D" parent="."]
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_7ejae")]
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+texture_repeat = 2
+scale = Vector2(-2, 2)
+texture = ExtResource("2_2iw2d")
+hframes = 4
+vframes = 4
