@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://trt188mo8hbs"]
+[gd_scene load_steps=6 format=3 uid="uid://trt188mo8hbs"]
 
+[ext_resource type="Script" path="res://scripts/background/level.gd" id="1_isn3x"]
 [ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_dhbtt"]
 [ext_resource type="PackedScene" uid="uid://bmvdjelkyy5nc" path="res://fionna.tscn" id="3_yc7m1"]
 [ext_resource type="PackedScene" uid="uid://b60ct8smlpe8t" path="res://fred.tscn" id="4_qwb61"]
 [ext_resource type="PackedScene" uid="uid://b0hc2367x8n47" path="res://tongue.tscn" id="5_k2hqb"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_isn3x")
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2, 2)
@@ -21,3 +23,10 @@ scale = Vector2(0.7, 0.7)
 position = Vector2(401, 758)
 
 [node name="Tongue" parent="Fred" instance=ExtResource("5_k2hqb")]
+
+[node name="margins" type="Node2D" parent="."]
+
+[node name="top_left" type="Node2D" parent="margins"]
+
+[node name="bottom_right" type="Node2D" parent="margins"]
+position = Vector2(1920, 1080)
