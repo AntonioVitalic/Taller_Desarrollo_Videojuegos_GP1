@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbeonulhxd7po"]
+[gd_scene load_steps=9 format=3 uid="uid://bbeonulhxd7po"]
 
 [ext_resource type="Script" path="res://scripts/background/level.gd" id="1_50t46"]
 [ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_ajrgt"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b60ct8smlpe8t" path="res://fred.tscn" id="4_3mbr2"]
 [ext_resource type="PackedScene" uid="uid://b0hc2367x8n47" path="res://tongue.tscn" id="5_uocio"]
 [ext_resource type="PackedScene" uid="uid://5h3a0grtuw0e" path="res://scenes/Interactables/coin.tscn" id="5_uw3d0"]
+[ext_resource type="PackedScene" uid="uid://c2bvxyf85c6ok" path="res://scenes/MovingPlatformH.tscn" id="7_twgfx"]
+[ext_resource type="PackedScene" uid="uid://dtstkah7x5f8s" path="res://scenes/MovingPlatformV.tscn" id="8_rir5l"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_50t46")
@@ -40,9 +42,29 @@ position = Vector2(665, 753)
 [node name="Coin4" parent="CoinHolder" instance=ExtResource("5_uw3d0")]
 position = Vector2(687, 753)
 
+[node name="Coin5" parent="CoinHolder" instance=ExtResource("5_uw3d0")]
+position = Vector2(939, 704)
+
+[node name="Coin6" parent="CoinHolder" instance=ExtResource("5_uw3d0")]
+position = Vector2(1011, 670)
+
 [node name="margins" type="Node2D" parent="."]
 
 [node name="top_left" type="Node2D" parent="margins"]
 
 [node name="bottom_right" type="Node2D" parent="margins"]
 position = Vector2(1921, 1080)
+
+[node name="MovingPlatformHolder" type="Node2D" parent="."]
+
+[node name="MovingPlatform" parent="MovingPlatformHolder" instance=ExtResource("7_twgfx")]
+position = Vector2(849, 775)
+
+[node name="MovingPlatform2" parent="MovingPlatformHolder" instance=ExtResource("7_twgfx")]
+position = Vector2(1136, 693)
+
+[node name="MovingPlatform3" parent="MovingPlatformHolder" instance=ExtResource("8_rir5l")]
+position = Vector2(1431, 523)
+
+[node name="MovingPlatform4" parent="MovingPlatformHolder" instance=ExtResource("7_twgfx")]
+position = Vector2(1635, 403)

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://co8paigggvwfh" path="res://assets/background/fourSeasonsPlatformer_ [tileset, version 2.0]/fourSeasonsPlatformer_ [tileset, version 2.0]/background_/terrain_.png" id="1_dul6w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0x5bv"]
-size = Vector2(48, 10)
+size = Vector2(78, 14)
 
 [sub_resource type="Animation" id="Animation_fvgjp"]
 length = 0.001
@@ -44,11 +44,13 @@ _data = {
 }
 
 [node name="MovingPlatform" type="Node2D"]
-
-[node name="Platform" type="AnimatableBody2D" parent="."]
 metadata/_edit_group_ = true
 
+[node name="Platform" type="AnimatableBody2D" parent="."]
+
 [node name="Sprite2D" type="Sprite2D" parent="Platform"]
+position = Vector2(0, -4.76837e-07)
+scale = Vector2(1.625, 1.5)
 texture = ExtResource("1_dul6w")
 region_enabled = true
 region_rect = Rect2(0, 167, 48, 9)
