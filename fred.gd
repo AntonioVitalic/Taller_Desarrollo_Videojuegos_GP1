@@ -84,9 +84,9 @@ func _physics_process(_delta: float) -> void:
 			can_jump = false	# Used air-jump
 			speed.y = -JUMP_FORCE
 
-func set_camera_margins(sup_left, inf_right):
-	camera.limit_top = sup_left.y
-	camera.limit_bottom = inf_right.y
-	camera.limit_left = sup_left.x
-	camera.limit_right = inf_right.x
+func set_camera_margins(top_left, bottom_right):
+	camera.limit_top = top_left.y
+	camera.limit_bottom = bottom_right.y
+	camera.limit_left = top_left.x
+	camera.limit_right = bottom_right.x
 
