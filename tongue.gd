@@ -20,7 +20,7 @@ var hooked = false	# Whether the tongue has connected to a wall
 func shoot(dir: Vector2) -> void:
 	direction = dir.normalized()	# Normalize the direction and save it
 	flying = true					# Keep track of our current scan
-	tip = self.global_position		# reset the tip position to the player's position
+
 
 # release() the tongue
 func release() -> void:
@@ -43,6 +43,7 @@ func _process(_delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	$Tip.global_position = tip	# The player might have moved and thus updated the position of the tip -> reset it
 	if flying:
+		print($Tip.global_position)
 		# `if move_and_collide()` always moves, but returns true if we did collide
 		if $Tip.move_and_collide(direction * SPEED):
 			hooked = true	# Got something!
