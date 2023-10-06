@@ -34,10 +34,8 @@ func _on_settings_pressed():
 	pass
 	
 func _on_menu_pressed():
-	if not main_menu:
-		return
-	get_tree().change_scene_to_packed(main_menu)
 	get_tree().paused = false
+	LevelManager.go_to_main_menu()
 	
 func _on_quit_pressed():
 	get_tree().quit()
