@@ -5,6 +5,7 @@ var direction := Vector2(0,0)	# The direction in which the tongue was shot
 @onready var links = $Links
 
 
+
 const SPEED = 50	# The speed with which the tongue moves
 
 var flying = false	# Whether the tongue is moving through the air
@@ -20,10 +21,15 @@ func shoot(dir: Vector2) -> void:
 func release() -> void:
 	flying = false	# Not flying anymore	
 	hooked = false	# Not attached anymore
-		
+
 func _physics_process(delta):
 	if flying:
 		tip.global_position = lerp(tip.global_position, direction, 10*delta )
 	else: 
 		tip.global_position = global_position
 	links.points[1] = tip.position
+
+
+func _on_collision_area_body_entered(body):
+	if body is Fionna:
+		flying = false

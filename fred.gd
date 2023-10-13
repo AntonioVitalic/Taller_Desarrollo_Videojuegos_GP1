@@ -14,7 +14,6 @@ const Tongue_PULL = 105
 var Tongue_velocity := Vector2(0,0)
 var can_jump = false			# Whether the player used their air-jump
 
-
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
