@@ -94,6 +94,8 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 
 [node name="Fred" type="CharacterBody2D"]
 position = Vector2(116, 72)
+collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_rscxi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
