@@ -73,6 +73,7 @@ _data = {
 script = SubResource("GDScript_vhli5")
 
 [node name="Platform" type="AnimatableBody2D" parent="."]
+collision_mask = 10
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform"]
