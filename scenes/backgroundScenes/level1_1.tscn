@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bbeonulhxd7po"]
+[gd_scene load_steps=11 format=3 uid="uid://bbeonulhxd7po"]
 
 [ext_resource type="Script" path="res://scripts/background/level.gd" id="1_50t46"]
 [ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_ajrgt"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c2bvxyf85c6ok" path="res://scenes/MovingPlatform.tscn" id="7_twgfx"]
 [ext_resource type="Texture2D" uid="uid://c24qwvmitwq7s" path="res://assets/background/fourSeasonsPlatformer_ [tileset, version 2.0]/fourSeasonsPlatformer_ [tileset, version 2.0]/objects_/coin_.png" id="8_he4xu"]
 [ext_resource type="PackedScene" uid="uid://dlrbuaqc6ulsh" path="res://scenes/backgroundScenes/next_level_area.tscn" id="10_82gpl"]
+[ext_resource type="PackedScene" uid="uid://doi8fr7k3rvb2" path="res://scenes/backgroundScenes/next_level_platform.tscn" id="10_fgjag"]
 
 [node name="level_1_1" type="Node2D"]
 script = ExtResource("1_50t46")
@@ -90,5 +91,8 @@ text = "0"
 
 [node name="next_level_area" parent="." instance=ExtResource("10_82gpl")]
 next_scene_path = "res://scenes/backgroundScenes/level1_2.tscn"
+
+[node name="MovingPlatform" parent="." instance=ExtResource("10_fgjag")]
+position = Vector2(1857, 403)
 
 [connection signal="ready" from="MovingPlatformHolder/MovingPlatform2" to="." method="_on_moving_platform_2_ready"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://trt188mo8hbs"]
+[gd_scene load_steps=8 format=3 uid="uid://trt188mo8hbs"]
 
 [ext_resource type="Script" path="res://scripts/background/level.gd" id="1_isn3x"]
 [ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_dhbtt"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b60ct8smlpe8t" path="res://fred.tscn" id="4_qwb61"]
 [ext_resource type="PackedScene" uid="uid://b0hc2367x8n47" path="res://tongue.tscn" id="5_k2hqb"]
 [ext_resource type="PackedScene" uid="uid://dlrbuaqc6ulsh" path="res://scenes/backgroundScenes/next_level_area.tscn" id="6_plwoc"]
+[ext_resource type="PackedScene" uid="uid://doi8fr7k3rvb2" path="res://scenes/backgroundScenes/next_level_platform.tscn" id="7_abom0"]
 
 [node name="level_1_2" type="Node2D"]
 script = ExtResource("1_isn3x")
@@ -34,3 +35,6 @@ position = Vector2(1920, 1080)
 
 [node name="next_level_area" parent="." instance=ExtResource("6_plwoc")]
 next_scene_path = "res://scenes/backgroundScenes/level2_1.tscn"
+
+[node name="next_level_platform" parent="." instance=ExtResource("7_abom0")]
+position = Vector2(1266, 600)
