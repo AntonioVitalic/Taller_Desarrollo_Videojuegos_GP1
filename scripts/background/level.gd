@@ -6,13 +6,6 @@ var moving_platform
 var current_level = [0, 0] # Stage, level
 var num_level = 2 # Number of levels per stage
 
-func go_next_level(stage, level):
-	if level == num_level:
-		stage += 1
-		level = level % num_level + 1
-		get_tree().change_scene("res://scenes/backgroundScenes/level"+str(stage)+"_"+str(level)+".tscn")
-
-
 # To check if current level has moving platforms in it
 # adds moving platforms script
 func level_with_moving_platforms():
