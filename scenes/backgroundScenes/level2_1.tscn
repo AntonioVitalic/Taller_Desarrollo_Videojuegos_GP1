@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqruvxs3nu7kr"]
+[gd_scene load_steps=9 format=3 uid="uid://bqruvxs3nu7kr"]
 
 [ext_resource type="Script" path="res://scripts/background/level.gd" id="1_1vucj"]
 [ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_j4li6"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b0hc2367x8n47" path="res://tongue.tscn" id="5_1mfqu"]
 [ext_resource type="PackedScene" uid="uid://ccdrg5kgah6pb" path="res://enemies/static_enemy.tscn" id="5_ercmh"]
 [ext_resource type="PackedScene" uid="uid://doi8fr7k3rvb2" path="res://scenes/backgroundScenes/next_level_platform.tscn" id="7_5lb10"]
+[ext_resource type="PackedScene" uid="uid://dlrbuaqc6ulsh" path="res://scenes/backgroundScenes/next_level_area.tscn" id="8_7ulvh"]
 
 [node name="level_2_1" type="Node2D"]
 script = ExtResource("1_1vucj")
@@ -38,3 +39,7 @@ position = Vector2(1920, 1079)
 
 [node name="next_level_platform" parent="." instance=ExtResource("7_5lb10")]
 position = Vector2(1566, 454)
+
+[node name="next_level_area" parent="." instance=ExtResource("8_7ulvh")]
+position = Vector2(-10, -34)
+next_scene_path = "res://scenes/backgroundScenes/level2_2.tscn"
