@@ -22,7 +22,7 @@ position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_ot23e")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(330, 0)
+target_position = Vector2(329, 0)
 
 [node name="Spawn-bullet" type="Marker2D" parent="."]
 position = Vector2(15, 0)
