@@ -1,27 +1,25 @@
 [gd_scene load_steps=4 format=3 uid="uid://ccdrg5kgah6pb"]
 
-[ext_resource type="Texture2D" uid="uid://bf7s241ph0aag" path="res://assets/AnimationSheet_Character.png" id="1_8k6cl"]
 [ext_resource type="Script" path="res://enemies/static_enemy.gd" id="1_h0ssd"]
+[ext_resource type="Texture2D" uid="uid://iqdygn3xukd3" path="res://assets/Slime/slime-Sheet.png" id="2_1saow"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_btqv1"]
-radius = 6.0
-height = 28.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x66j8"]
+size = Vector2(24, 13)
 
 [node name="static_enemy" type="CharacterBody2D"]
 script = ExtResource("1_h0ssd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 2)
-shape = SubResource("CapsuleShape2D_btqv1")
+position = Vector2(1, 5.5)
+shape = SubResource("RectangleShape2D_x66j8")
 
 [node name="Pivot" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot"]
-texture = ExtResource("1_8k6cl")
+texture = ExtResource("2_1saow")
 hframes = 8
-vframes = 9
-frame = 56
+vframes = 3
 
 [node name="RayCast2D" type="RayCast2D" parent="Pivot"]
-position = Vector2(7, 0)
+position = Vector2(15, 1)
 target_position = Vector2(0, 22)
