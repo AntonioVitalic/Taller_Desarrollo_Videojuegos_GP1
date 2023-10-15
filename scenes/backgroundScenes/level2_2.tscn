@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://yijj8jreape3"]
+
+[ext_resource type="Script" path="res://scripts/background/level.gd" id="1_ylcfi"]
+[ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_fxkh7"]
+[ext_resource type="PackedScene" uid="uid://bmvdjelkyy5nc" path="res://fionna.tscn" id="3_0s8tc"]
+[ext_resource type="PackedScene" uid="uid://b60ct8smlpe8t" path="res://fred.tscn" id="4_0kct2"]
+[ext_resource type="PackedScene" uid="uid://b0hc2367x8n47" path="res://tongue.tscn" id="5_xdbjf"]
+[ext_resource type="PackedScene" uid="uid://doi8fr7k3rvb2" path="res://scenes/backgroundScenes/next_level_platform.tscn" id="7_lqwhp"]
+[ext_resource type="PackedScene" uid="uid://dlrbuaqc6ulsh" path="res://scenes/backgroundScenes/next_level_area.tscn" id="8_f3o77"]
+
+[node name="level_2_1" type="Node2D"]
+script = ExtResource("1_ylcfi")
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(2, 2)
+tile_set = ExtResource("2_fxkh7")
+format = 2
+layer_0/tile_data = PackedInt32Array(1572875, 196609, 1, 1638411, 196609, 2, 1572876, 262145, 1, 1638412, 262145, 2, 1572877, 327681, 1, 1638413, 327681, 2, 851986, 196609, 1, 917522, 196609, 2, 851987, 262145, 1, 917523, 262145, 2, 851988, 327681, 1, 917524, 327681, 2, 327697, 262145, 1, 393233, 262145, 2, 458769, 262145, 3, 524305, 262145, 4, 589841, 262145, 5, 655377, 262145, 6, 655388, 196609, 1, 720924, 196609, 2, 655389, 262145, 1, 720925, 262145, 2, 655390, 327681, 1, 720926, 327681, 2, 196635, 262145, 1, 262171, 262145, 2, 327707, 262145, 3, 393243, 262145, 4, 458779, 262145, 5, 524315, 262145, 6)
+
+[node name="Fionna" parent="." instance=ExtResource("3_0s8tc")]
+position = Vector2(394, 439)
+scale = Vector2(0.7, 0.7)
+
+[node name="Fred" parent="." instance=ExtResource("4_0kct2")]
+position = Vector2(401, 758)
+
+[node name="Tongue" parent="Fred" instance=ExtResource("5_xdbjf")]
+
+[node name="margins" type="Node2D" parent="."]
+
+[node name="top_left" type="Node2D" parent="margins"]
+
+[node name="bottom_right" type="Node2D" parent="margins"]
+position = Vector2(1920, 1079)
+
+[node name="next_level_platform" parent="." instance=ExtResource("7_lqwhp")]
+position = Vector2(1566, 454)
+
+[node name="next_level_area" parent="." instance=ExtResource("8_f3o77")]
+position = Vector2(-10, -55)
+next_scene_path = "res://scenes/ui/MainMenu.tscn"
