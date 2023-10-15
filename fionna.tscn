@@ -128,7 +128,7 @@ states/x_movement/position = Vector2(418, 76)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_luxot"), "idle", "up_movement", SubResource("AnimationNodeStateMachineTransition_aa1uy")]
 graph_offset = Vector2(-139.876, -69)
 
-[node name="Fionna" type="CharacterBody2D"]
+[node name="Fionna" type="CharacterBody2D" groups=["fly"]]
 position = Vector2(-1, -1)
 script = ExtResource("1_el4im")
 

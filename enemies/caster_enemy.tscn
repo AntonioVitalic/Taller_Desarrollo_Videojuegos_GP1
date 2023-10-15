@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxt8xt2l8vblu"]
+
+[ext_resource type="Texture2D" uid="uid://bf7s241ph0aag" path="res://assets/AnimationSheet_Character.png" id="1_opfo5"]
+[ext_resource type="Script" path="res://enemies/caster_enemy.gd" id="1_xtoub"]
+[ext_resource type="PackedScene" uid="uid://cjn07p2mobhiv" path="res://scenes/Interactables/Bullet.tscn" id="2_7qcxm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ot23e"]
+radius = 6.0
+height = 26.0
+
+[node name="caster_enemy" type="StaticBody2D"]
+script = ExtResource("1_xtoub")
+bullet = ExtResource("2_7qcxm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_opfo5")
+hframes = 8
+vframes = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_ot23e")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(330, 0)
+
+[node name="Spawn-bullet" type="Marker2D" parent="."]
+position = Vector2(15, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
