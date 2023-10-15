@@ -18,7 +18,7 @@ func _ready() -> void:
 	hide()
 	
 func _input(event: InputEvent) -> void:
-	if event. is_action_pressed("pause"):
+	if event. is_action_pressed("pause_menu"):
 		visible = !visible
 		get_tree().paused = visible
 	

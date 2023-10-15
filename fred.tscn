@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://b60ct8smlpe8t"]
+[gd_scene load_steps=18 format=3 uid="uid://b60ct8smlpe8t"]
 
 [ext_resource type="Script" path="res://fred.gd" id="1_rscxi"]
 [ext_resource type="Texture2D" uid="uid://ot283saeqp13" path="res://assets/rana_fred/ToxicFrog/GreenBlue/ToxicFrogGreenBlue_Idle.png" id="2_ujs54"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="3_553eo"]
 [ext_resource type="PackedScene" uid="uid://rvkdxgbtcpvo" path="res://scenes/backgroundScenes/gameBackground.tscn" id="4_215sd"]
+[ext_resource type="PackedScene" uid="uid://daydnrlr4feio" path="res://scenes/ui/PauseMenu.tscn" id="5_qh8jo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7dy7"]
 size = Vector2(21, 16)
@@ -92,6 +93,9 @@ states/shoot_tongue/node = SubResource("AnimationNodeAnimation_561qv")
 states/shoot_tongue/position = Vector2(515, 67)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_8p2vf"), "idle", "shoot_tongue", SubResource("AnimationNodeStateMachineTransition_bdnrp"), "shoot_tongue", "idle", SubResource("AnimationNodeStateMachineTransition_snuba")]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ba7h"]
+size = Vector2(20, 16)
+
 [node name="Fred" type="CharacterBody2D"]
 position = Vector2(116, 72)
 collision_layer = 2
@@ -123,3 +127,12 @@ scroll_limit_end = Vector2(1920, 1080)
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
 
 [node name="Node2D" parent="Camera2D/ParallaxBackground/ParallaxLayer" instance=ExtResource("4_215sd")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_qh8jo")]
+
+[node name="Interactions" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions"]
+shape = SubResource("RectangleShape2D_1ba7h")

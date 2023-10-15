@@ -1,11 +1,9 @@
 extends Node
 
 var current_cp : Balloon
-var player : Fionna
+var player : Fred
 var coins : int
 signal gained_coins(int)
-
-
 
 func gain_coins(coins_gained:int):
 	coins += coins_gained

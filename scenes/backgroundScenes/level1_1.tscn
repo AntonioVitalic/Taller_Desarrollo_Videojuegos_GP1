@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbeonulhxd7po"]
+[gd_scene load_steps=12 format=3 uid="uid://bbeonulhxd7po"]
 
 [ext_resource type="Script" path="res://scripts/background/level.gd" id="1_50t46"]
 [ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_ajrgt"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b0hc2367x8n47" path="res://tongue.tscn" id="5_uocio"]
 [ext_resource type="PackedScene" uid="uid://5h3a0grtuw0e" path="res://scenes/Interactables/coin.tscn" id="5_uw3d0"]
 [ext_resource type="PackedScene" uid="uid://c2bvxyf85c6ok" path="res://scenes/MovingPlatform.tscn" id="7_twgfx"]
+[ext_resource type="Script" path="res://scripts/ui/UIManager.gd" id="8_fqwd6"]
 [ext_resource type="Texture2D" uid="uid://c24qwvmitwq7s" path="res://assets/background/fourSeasonsPlatformer_ [tileset, version 2.0]/fourSeasonsPlatformer_ [tileset, version 2.0]/objects_/coin_.png" id="8_he4xu"]
 [ext_resource type="PackedScene" uid="uid://dlrbuaqc6ulsh" path="res://scenes/backgroundScenes/next_level_area.tscn" id="10_82gpl"]
 [ext_resource type="PackedScene" uid="uid://doi8fr7k3rvb2" path="res://scenes/backgroundScenes/next_level_platform.tscn" id="10_fgjag"]
@@ -72,16 +73,17 @@ position = Vector2(1443, 462)
 [node name="MovingPlatform4" parent="MovingPlatformHolder" instance=ExtResource("7_twgfx")]
 position = Vector2(1635, 403)
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UIManager" type="CanvasLayer" parent="."]
+script = ExtResource("8_fqwd6")
 
-[node name="CoinIcon" type="Sprite2D" parent="UI"]
+[node name="CoinIcon" type="Sprite2D" parent="UIManager"]
 position = Vector2(34, 26)
 scale = Vector2(3.09, 3)
 texture = ExtResource("8_he4xu")
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 
-[node name="CoinDisplay" type="Label" parent="UI"]
+[node name="CoinDisplay" type="Label" parent="UIManager"]
 offset_left = 58.0
 offset_top = 6.0
 offset_right = 102.0
