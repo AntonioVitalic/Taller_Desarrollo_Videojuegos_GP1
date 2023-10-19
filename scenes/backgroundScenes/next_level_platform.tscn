@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://doi8fr7k3rvb2"]
 
 [ext_resource type="Script" path="res://scenes/backgroundScenes/next_level_platform.gd" id="1_j0q4a"]
-[ext_resource type="Texture2D" uid="uid://co8paigggvwfh" path="res://assets/background/fourSeasonsPlatformer_ [tileset, version 2.0]/fourSeasonsPlatformer_ [tileset, version 2.0]/background_/terrain_.png" id="1_koent"]
+[ext_resource type="Texture2D" uid="uid://bcccpg52wc8aa" path="res://assets/background/fourSeasonsPlatformer_ [tileset, version 2.0]/fourSeasonsPlatformer_ [tileset, version 2.0]/objects_/staticObjects_.png" id="2_gw3sg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0x5bv"]
 size = Vector2(78, 14)
@@ -55,9 +55,9 @@ collision_mask = 6
 [node name="Sprite2D" type="Sprite2D" parent="Platform"]
 position = Vector2(0, -4.76837e-07)
 scale = Vector2(1.625, 1.5)
-texture = ExtResource("1_koent")
+texture = ExtResource("2_gw3sg")
 region_enabled = true
-region_rect = Rect2(0, 167, 48, 9)
+region_rect = Rect2(160, 120, 48, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 shape = SubResource("RectangleShape2D_0x5bv")
