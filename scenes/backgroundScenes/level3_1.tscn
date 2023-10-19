@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://fvn8ynsed2kg"]
+
+[ext_resource type="Script" path="res://scripts/background/level.gd" id="1_kbejx"]
+[ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_m73vs"]
+[ext_resource type="PackedScene" uid="uid://bmvdjelkyy5nc" path="res://fionna.tscn" id="3_rni30"]
+[ext_resource type="PackedScene" uid="uid://b60ct8smlpe8t" path="res://fred.tscn" id="4_nsj46"]
+[ext_resource type="PackedScene" uid="uid://b0hc2367x8n47" path="res://tongue.tscn" id="5_aemg3"]
+[ext_resource type="PackedScene" uid="uid://doi8fr7k3rvb2" path="res://scenes/backgroundScenes/next_level_platform.tscn" id="6_xxcx7"]
+[ext_resource type="PackedScene" uid="uid://dlrbuaqc6ulsh" path="res://scenes/backgroundScenes/next_level_area.tscn" id="7_8kos3"]
+[ext_resource type="PackedScene" uid="uid://byntnulsa2y3j" path="res://scenes/MovingPlatformHorizontal.tscn" id="8_mif3s"]
+[ext_resource type="PackedScene" uid="uid://cqnkou8r3oh8t" path="res://scenes/MovingPlatformVertical.tscn" id="9_ow680"]
+
+[node name="level_2_1" type="Node2D"]
+script = ExtResource("1_kbejx")
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(2, 2)
+tile_set = ExtResource("2_m73vs")
+format = 2
+layer_0/tile_data = PackedInt32Array(1572875, 196609, 1, 1638411, 196609, 2, 1572876, 262145, 1, 1638412, 262145, 2, 1572877, 327681, 1, 1638413, 327681, 2)
+
+[node name="Fionna" parent="." instance=ExtResource("3_rni30")]
+position = Vector2(394, 439)
+scale = Vector2(0.7, 0.7)
+
+[node name="Fred" parent="." instance=ExtResource("4_nsj46")]
+position = Vector2(401, 758)
+
+[node name="Tongue" parent="Fred" instance=ExtResource("5_aemg3")]
+
+[node name="margins" type="Node2D" parent="."]
+
+[node name="top_left" type="Node2D" parent="margins"]
+
+[node name="bottom_right" type="Node2D" parent="margins"]
+position = Vector2(1920, 1079)
+
+[node name="next_level_platform" parent="." instance=ExtResource("6_xxcx7")]
+position = Vector2(1566, 454)
+
+[node name="next_level_area" parent="." instance=ExtResource("7_8kos3")]
+position = Vector2(-10, -55)
+next_scene_path = "res://scenes/ui/MainMenu.tscn"
+
+[node name="MovingPlatformHorizontal" parent="." instance=ExtResource("8_mif3s")]
+position = Vector2(571, 765)
+
+[node name="MovingPlatformHorizontal2" parent="." instance=ExtResource("8_mif3s")]
+position = Vector2(1036, 650)
+
+[node name="MovingPlatformVertical" parent="." instance=ExtResource("9_ow680")]
+position = Vector2(796, 657)
+
+[node name="MovingPlatformVertical2" parent="." instance=ExtResource("9_ow680")]
+position = Vector2(1359, 605)
