@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bbeonulhxd7po"]
+[gd_scene load_steps=11 format=3 uid="uid://bbeonulhxd7po"]
 
 [ext_resource type="Script" path="res://scripts/background/level.gd" id="1_50t46"]
 [ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_ajrgt"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://b60ct8smlpe8t" path="res://fred.tscn" id="4_3mbr2"]
 [ext_resource type="PackedScene" uid="uid://b0hc2367x8n47" path="res://tongue.tscn" id="5_uocio"]
 [ext_resource type="PackedScene" uid="uid://5h3a0grtuw0e" path="res://scenes/Interactables/coin.tscn" id="5_uw3d0"]
-[ext_resource type="PackedScene" uid="uid://c2bvxyf85c6ok" path="res://scenes/MovingPlatform.tscn" id="7_twgfx"]
 [ext_resource type="Script" path="res://scripts/ui/UIManager.gd" id="8_fqwd6"]
 [ext_resource type="Texture2D" uid="uid://c24qwvmitwq7s" path="res://assets/background/fourSeasonsPlatformer_ [tileset, version 2.0]/fourSeasonsPlatformer_ [tileset, version 2.0]/objects_/coin_.png" id="8_he4xu"]
 [ext_resource type="PackedScene" uid="uid://dlrbuaqc6ulsh" path="res://scenes/backgroundScenes/next_level_area.tscn" id="10_82gpl"]
@@ -19,7 +18,7 @@ script = ExtResource("1_50t46")
 scale = Vector2(2, 2)
 tile_set = ExtResource("2_ajrgt")
 format = 2
-layer_0/tile_data = PackedInt32Array(1572883, 196609, 1, 1638419, 196609, 2, 1572884, 262145, 1, 1638420, 262145, 2, 1572885, 327681, 1, 1638421, 327681, 2, 1572875, 196609, 1, 1638411, 196609, 2, 1572876, 262145, 1, 1638412, 262145, 2, 1572877, 327681, 1, 1638413, 327681, 2)
+layer_0/tile_data = PackedInt32Array(1572883, 196609, 1, 1638419, 196609, 2, 1572884, 262145, 1, 1638420, 262145, 2, 1572885, 327681, 1, 1638421, 327681, 2, 1572875, 196609, 1, 1638411, 196609, 2, 1572876, 262145, 1, 1638412, 262145, 2, 1572877, 327681, 1, 1638413, 327681, 2, 1310752, 196609, 1, 1376288, 196609, 2, 1310753, 262145, 1, 1376289, 262145, 2, 1310754, 327681, 1, 1376290, 327681, 2, 1441818, 196609, 1, 1507354, 196609, 2, 1441819, 262145, 1, 1507355, 262145, 2, 1441820, 327681, 1, 1507356, 327681, 2)
 
 [node name="Fionna" parent="." instance=ExtResource("3_2kmmk")]
 position = Vector2(479, 716)
@@ -59,20 +58,6 @@ position = Vector2(1011, 670)
 [node name="bottom_right" type="Node2D" parent="margins"]
 position = Vector2(1921, 1080)
 
-[node name="MovingPlatformHolder" type="Node2D" parent="."]
-
-[node name="MovingPlatform" parent="MovingPlatformHolder" instance=ExtResource("7_twgfx")]
-position = Vector2(849, 775)
-
-[node name="MovingPlatform2" parent="MovingPlatformHolder" instance=ExtResource("7_twgfx")]
-position = Vector2(1136, 693)
-
-[node name="MovingPlatform3" parent="MovingPlatformHolder" instance=ExtResource("7_twgfx")]
-position = Vector2(1443, 462)
-
-[node name="MovingPlatform4" parent="MovingPlatformHolder" instance=ExtResource("7_twgfx")]
-position = Vector2(1635, 403)
-
 [node name="UIManager" type="CanvasLayer" parent="."]
 script = ExtResource("8_fqwd6")
 
@@ -95,6 +80,4 @@ text = "0"
 next_scene_path = "res://scenes/backgroundScenes/level1_2.tscn"
 
 [node name="MovingPlatform" parent="." instance=ExtResource("10_fgjag")]
-position = Vector2(1857, 403)
-
-[connection signal="ready" from="MovingPlatformHolder/MovingPlatform2" to="." method="_on_moving_platform_2_ready"]
+position = Vector2(1217, 648)
