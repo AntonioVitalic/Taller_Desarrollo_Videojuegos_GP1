@@ -32,8 +32,7 @@ func release() -> void:
 	timer.stop()
 
 func _physics_process(delta):
-	if moving:
-		release()
+	
 	if flying:
 		var distance_to_target = global_position.distance_to(target)
 		if distance_to_target > MAX_RANGE:
@@ -41,8 +40,11 @@ func _physics_process(delta):
 		tip.global_position = tip.global_position.move_toward(target, SPEED * delta)
 	elif hooked:
 		tip.global_position = fly.global_position
+		if moving:
+			release()
 	else:
 		tip.global_position = global_position
+		
 	links.points[1] = tip.position
 
 
