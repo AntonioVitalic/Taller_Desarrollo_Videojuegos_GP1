@@ -9,7 +9,7 @@ var acceleration = 10000
 @onready var sprite_2d = $Pivot/Sprite2D
 
 signal is_moving(value)
-
+var hooked = false
 func _ready() -> void:
 	animation_tree.active = true
 	
@@ -28,46 +28,28 @@ func _physics_process(delta: float) -> void:
 	var move_inputx = Input.get_axis("left","right")
 	var move_inputy = Input.get_axis("up_movement", "down_movement")
 	
-	velocity.x = move_toward(velocity.x, speed*move_inputx, acceleration * delta)
-	velocity.y = move_toward(velocity.y, speed*move_inputy, acceleration*delta)
-	
-	#velocity = Vector2(Input.get_axis("left", "right"),Input.get_axis("up_movement", "down_movement"))
-	#velocity = velocity.normalized()*speed
-	#velocity.x = move_toward(velocity.x, speed*move_input, acceleration * delta)
-	move_and_slide()
+	if not hooked:
+		velocity.x = move_toward(velocity.x, speed*move_inputx, acceleration * delta)
+		velocity.y = move_toward(velocity.y, speed*move_inputy, acceleration*delta)
+		move_and_slide()
 	
 	#animation
-	if velocity.x != 0:
-		pivot.scale.x = sign(velocity.x)
+		if velocity.x != 0:
+			pivot.scale.x = sign(velocity.x)
 	
-	if abs(velocity.x) > 10 or move_inputx:
-		playback.travel("x_movement")
-		emit_signal("is_moving", true)
-	else:
-		playback.travel("idle")
-		emit_signal("is_moving", false)
-	if velocity.y < 0:
-		playback.travel("up_movement")
-		emit_signal("is_moving", true)
-	if velocity.y > 0:
-		playback.travel("down_movement")
-		emit_signal("is_moving", true)
-#	velocity = Vector2(Input.get_axis("left", "right"),Input.get_axis("up_movement", "down_movement"))
-#	velocity = velocity.normalized()*speed
-#	move_and_slide()
-	
-	
-#	if abs(velocity.x)>0:
-#		playback.travel("movement_x")
-#	else:
-#		playback.travel("idle")
-#
-#	if velocity.y<0:
-#		playback.travel("up_movement")
-#	else:
-#		playback.travel("idle")
-		
-#	if velocity.y>0:
-#		playback.travel("down_movement")
-#	else:
-#		playback.travel("idle")
+		if abs(velocity.x) > 10 or move_inputx:
+			playback.travel("x_movement")
+			emit_signal("is_moving", true)
+		else:
+			playback.travel("idle")
+			emit_signal("is_moving", false)
+		if velocity.y < 0:
+			playback.travel("up_movement")
+			emit_signal("is_moving", true)
+		if velocity.y > 0:
+			playback.travel("down_movement")
+			emit_signal("is_moving", true)
+
+
+func _on_tongue_is_hooked(value):
+	hooked = value

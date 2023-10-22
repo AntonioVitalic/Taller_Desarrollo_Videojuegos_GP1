@@ -55,3 +55,4 @@ position = Vector2(796, 657)
 position = Vector2(1359, 605)
 
 [connection signal="is_moving" from="Fionna" to="Fred/Tongue" method="_on_fionna_is_moving"]
+[connection signal="is_hooked" from="Fred/Tongue" to="Fionna" method="_on_tongue_is_hooked"]

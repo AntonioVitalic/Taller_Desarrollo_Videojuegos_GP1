@@ -5,7 +5,7 @@ var direction := Vector2(0,0)	# The direction in which the tongue was shot
 @onready var links = $Links
 @onready var fionna = $Fionna
 @onready var timer = $Timer
-
+signal is_hooked(value)
 
 
 const SPEED = 2000	# The speed with which the tongue moves
@@ -29,6 +29,7 @@ func shoot(dir: Vector2) -> void:
 func release() -> void:
 	flying = false	# Not flying anymore	
 	hooked = false	# Not attached anymore
+	emit_signal("is_hooked", false)
 	timer.stop()
 
 func _physics_process(delta):
@@ -53,6 +54,7 @@ func _on_collision_area_body_entered(body):
 	if (body is Fionna) and (not moving):
 		flying = false
 		hooked = true
+		emit_signal("is_hooked", true)
 		fly = body
 
 
