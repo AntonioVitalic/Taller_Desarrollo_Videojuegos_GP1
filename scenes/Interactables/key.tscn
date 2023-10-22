@@ -1,19 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://dm33p28ekge2"]
 
-[ext_resource type="Script" path="res://scripts/interactables/balloon.gd" id="1_oogm8"]
+[ext_resource type="Script" path="res://scripts/interactables/key.gd" id="1_oogm8"]
 [ext_resource type="Texture2D" uid="uid://di17xp1emsf7r" path="res://assets/background/fourSeasonsPlatformer_ [tileset, version 2.0]/fourSeasonsPlatformer_ [tileset, version 2.0]/objects_/items_.png" id="1_vhed6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ig0my"]
 radius = 5.0
 height = 14.0
 
-[node name="Balloon" type="Node2D"]
+[node name="Key" type="Node2D"]
 script = ExtResource("1_oogm8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_vhed6")
 region_enabled = true
-region_rect = Rect2(36, 18, 8, 12)
+region_rect = Rect2(52.7802, 33.7018, 6.48627, 12.2969)
 
 [node name="Area2D" type="Area2D" parent="."]
 monitorable = false

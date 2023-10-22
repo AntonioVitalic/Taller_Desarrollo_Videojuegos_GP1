@@ -1,6 +1,5 @@
 extends Node
 
-var current_cp : Balloon
 var player : Fred
 var coins : int
 signal gained_coins(int)

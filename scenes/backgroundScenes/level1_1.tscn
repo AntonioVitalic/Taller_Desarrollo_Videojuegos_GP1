@@ -46,10 +46,22 @@ position = Vector2(665, 753)
 position = Vector2(687, 753)
 
 [node name="Coin5" parent="CoinHolder" instance=ExtResource("5_uw3d0")]
-position = Vector2(939, 704)
+position = Vector2(761, 711)
 
 [node name="Coin6" parent="CoinHolder" instance=ExtResource("5_uw3d0")]
-position = Vector2(1011, 670)
+position = Vector2(844, 687)
+
+[node name="Coin7" parent="CoinHolder" instance=ExtResource("5_uw3d0")]
+position = Vector2(867, 687)
+
+[node name="Coin8" parent="CoinHolder" instance=ExtResource("5_uw3d0")]
+position = Vector2(890, 687)
+
+[node name="Coin9" parent="CoinHolder" instance=ExtResource("5_uw3d0")]
+position = Vector2(914, 687)
+
+[node name="Coin10" parent="CoinHolder" instance=ExtResource("5_uw3d0")]
+position = Vector2(971, 644)
 
 [node name="margins" type="Node2D" parent="."]
 
