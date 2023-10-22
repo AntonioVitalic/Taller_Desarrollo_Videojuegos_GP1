@@ -42,4 +42,8 @@ shape = SubResource("CapsuleShape2D_nc8wa")
 position = Vector2(-1.0848e-05, -3)
 shape = SubResource("CapsuleShape2D_f857w")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
 [connection signal="body_entered" from="Tip/CollisionArea" to="." method="_on_collision_area_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

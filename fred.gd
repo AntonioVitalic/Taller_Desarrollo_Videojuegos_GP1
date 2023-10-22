@@ -2,10 +2,10 @@ extends CharacterBody2D
 class_name Fred
 
 const JUMP_FORCE = 1550			# Force applied on jumping
-const MOVE_velocity = 500			# velocity to walk with
-const GRAVITY = 60				# Gravity applied every second
-const MAX_velocity = 2000			# Maximum velocity the player is allowed to move
-const FRICTION_AIR = 0.95		# The friction while airborne
+const MOVE_velocity = 500		# Velocity to walk with
+const GRAVITY = 55				# Gravity applied every second
+const MAX_velocity = 2000		# Maximum velocity the player is allowed to move
+const FRICTION_AIR = 0.98		# The friction while airborne
 const FRICTION_GROUND = 0.85	# The friction while on the ground
 const Tongue_PULL = 50
 @onready var camera= $Camera2D
