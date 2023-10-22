@@ -27,6 +27,7 @@ func _on_resume_pressed():
 	get_tree().paused = false
 
 func _on_restart_pressed():
+	GameManager.coins = 0
 	get_tree().reload_current_scene()
 	get_tree().paused = false
 	
@@ -34,6 +35,7 @@ func _on_settings_pressed():
 	pass
 	
 func _on_menu_pressed():
+	GameManager.coins = 0
 	get_tree().paused = false
 	LevelManager.go_to_main_menu()
 	
