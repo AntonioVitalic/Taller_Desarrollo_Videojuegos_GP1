@@ -3,6 +3,7 @@ extends Node2D
 @onready var tip = $Tip
 var direction := Vector2(0,0)	# The direction in which the tongue was shot
 @onready var links = $Links
+@onready var timer = $Timer
 
 
 
@@ -20,11 +21,13 @@ func shoot(dir: Vector2) -> void:
 	look_at(direction)
 	flying = true
 	target = get_global_mouse_position()
+	timer.start()
 
 # release() the tongue
 func release() -> void:
 	flying = false	# Not flying anymore	
 	hooked = false	# Not attached anymore
+	timer.stop()
 
 func _physics_process(delta):
 	if flying:
@@ -45,3 +48,8 @@ func _on_collision_area_body_entered(body):
 		flying = false
 		hooked = true
 		fly = body
+
+
+func _on_timer_timeout():
+	release()
+	print("¡La lengua estuvo agarrada por mucho tiempo!")
