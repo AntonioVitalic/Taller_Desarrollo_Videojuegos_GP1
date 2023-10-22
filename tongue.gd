@@ -7,6 +7,7 @@ var direction := Vector2(0,0)	# The direction in which the tongue was shot
 
 
 const SPEED = 2000	# The speed with which the tongue moves
+const MAX_RANGE = 300 # Adjust this value as needed
 
 var flying = false	# Whether the tongue is moving through the air
 var hooked = false	# Whether the tongue has connected to a wall
@@ -27,12 +28,16 @@ func release() -> void:
 
 func _physics_process(delta):
 	if flying:
-		tip.global_position = tip.global_position.move_toward(target, SPEED*delta)
+		var distance_to_target = global_position.distance_to(target)
+		if distance_to_target > MAX_RANGE:
+			target = global_position + (target - global_position).normalized() * MAX_RANGE
+		tip.global_position = tip.global_position.move_toward(target, SPEED * delta)
 	elif hooked:
 		tip.global_position = fly.global_position
-	else: 
+	else:
 		tip.global_position = global_position
 	links.points[1] = tip.position
+
 
 
 func _on_collision_area_body_entered(body):
