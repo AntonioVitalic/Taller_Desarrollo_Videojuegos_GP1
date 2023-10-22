@@ -81,3 +81,5 @@ next_scene_path = "res://scenes/backgroundScenes/level1_2.tscn"
 
 [node name="MovingPlatform" parent="." instance=ExtResource("10_fgjag")]
 position = Vector2(1217, 648)
+
+[connection signal="is_moving" from="Fionna" to="Fred/Tongue" method="_on_fionna_is_moving"]

@@ -3,7 +3,7 @@ extends Node2D
 @onready var tip = $Tip
 var direction := Vector2(0,0)	# The direction in which the tongue was shot
 @onready var links = $Links
-
+@onready var fionna = $Fionna
 
 
 const SPEED = 2000	# The speed with which the tongue moves
@@ -12,6 +12,7 @@ var flying = false	# Whether the tongue is moving through the air
 var hooked = false	# Whether the tongue has connected to a wall
 var fly
 var target = Vector2(0,0)
+var moving = false
 
 # shoot() shoots the tongue in a given direction
 func shoot(dir: Vector2) -> void:
@@ -26,6 +27,8 @@ func release() -> void:
 	hooked = false	# Not attached anymore
 
 func _physics_process(delta):
+	if moving:
+		release()
 	if flying:
 		tip.global_position = tip.global_position.move_toward(target, SPEED*delta)
 	elif hooked:
@@ -36,7 +39,11 @@ func _physics_process(delta):
 
 
 func _on_collision_area_body_entered(body):
-	if body is Fionna:
+	if (body is Fionna) and (not moving):
 		flying = false
 		hooked = true
 		fly = body
+
+
+func _on_fionna_is_moving(value):
+	moving = value

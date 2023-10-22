@@ -53,3 +53,5 @@ position = Vector2(796, 657)
 
 [node name="MovingPlatformVertical2" parent="." instance=ExtResource("9_ow680")]
 position = Vector2(1359, 605)
+
+[connection signal="is_moving" from="Fionna" to="Fred/Tongue" method="_on_fionna_is_moving"]

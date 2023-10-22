@@ -47,3 +47,5 @@ next_scene_path = "res://scenes/backgroundScenes/level2_2.tscn"
 
 [node name="caster_enemy" parent="." instance=ExtResource("9_oujtv")]
 position = Vector2(610, 754)
+
+[connection signal="is_moving" from="Fionna" to="Fred/Tongue" method="_on_fionna_is_moving"]

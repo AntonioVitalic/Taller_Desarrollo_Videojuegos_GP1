@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b60ct8smlpe8t"]
+[gd_scene load_steps=18 format=3 uid="uid://b60ct8smlpe8t"]
 
 [ext_resource type="Script" path="res://fred.gd" id="1_rscxi"]
 [ext_resource type="Texture2D" uid="uid://ot283saeqp13" path="res://assets/rana_fred/ToxicFrog/GreenBlue/ToxicFrogGreenBlue_Idle.png" id="2_ujs54"]
@@ -96,9 +96,6 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ba7h"]
 size = Vector2(20, 16)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vhhrv"]
-radius = 257.008
-
 [node name="Fred" type="CharacterBody2D"]
 position = Vector2(116, 72)
 collision_layer = 2
@@ -139,11 +136,3 @@ scroll_limit_end = Vector2(1920, 1080)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions"]
 shape = SubResource("RectangleShape2D_1ba7h")
-
-[node name="tongue range" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="tongue range"]
-shape = SubResource("CircleShape2D_vhhrv")
-
-[connection signal="body_entered" from="tongue range" to="." method="_on_tongue_range_body_entered"]
-[connection signal="body_exited" from="tongue range" to="." method="_on_tongue_range_body_exited"]

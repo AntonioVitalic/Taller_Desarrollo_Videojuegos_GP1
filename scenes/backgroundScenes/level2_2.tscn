@@ -39,3 +39,5 @@ position = Vector2(1566, 454)
 [node name="next_level_area" parent="." instance=ExtResource("8_f3o77")]
 position = Vector2(-10, -55)
 next_scene_path = "res://scenes/backgroundScenes/level3_1.tscn"
+
+[connection signal="is_moving" from="Fionna" to="Fred/Tongue" method="_on_fionna_is_moving"]

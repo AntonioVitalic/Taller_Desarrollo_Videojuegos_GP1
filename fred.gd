@@ -13,13 +13,12 @@ const Tongue_PULL = 50
 
 var Tongue_velocity := Vector2(0,0)
 var can_jump = false			# Whether the player used their air-jump
-var can_hook = false 			# Wheter the player can hook Fred's tongue on Fionna
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
 			# We clicked the mouse -> shoot()
-			if not tongue.hooked and can_hook:
+			if not tongue.hooked:
 				tongue.shoot(get_global_mouse_position())
 		else:
 			# We released the mouse -> release()
@@ -76,11 +75,3 @@ func set_camera_margins(top_left, bottom_right):
 	camera.limit_left = top_left.x
 	camera.limit_right = bottom_right.x
 
-func _on_tongue_range_body_entered(body):
-	if body.name == "Fionna":
-		can_hook = true
-
-
-func _on_tongue_range_body_exited(body):
-	if body.name == "Fionna":
-		can_hook = false
