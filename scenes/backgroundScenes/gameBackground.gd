@@ -13,4 +13,5 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Fred":
+		GameManager.coins = 0
 		get_tree().reload_current_scene()
