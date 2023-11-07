@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://scripts/core/GameManager.gd"
 LevelManager="*res://scenes/backgroundScenes/level_manager.tscn"
+Events="*res://scripts/core/events.gd"
 
 [display]
 
