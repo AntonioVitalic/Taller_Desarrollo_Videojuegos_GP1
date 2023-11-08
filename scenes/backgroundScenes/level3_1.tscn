@@ -1,14 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://fvn8ynsed2kg"]
+[gd_scene load_steps=12 format=3 uid="uid://fvn8ynsed2kg"]
 
 [ext_resource type="Script" path="res://scripts/background/level.gd" id="1_kbejx"]
 [ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_m73vs"]
 [ext_resource type="PackedScene" uid="uid://bmvdjelkyy5nc" path="res://fionna.tscn" id="3_rni30"]
 [ext_resource type="PackedScene" uid="uid://b60ct8smlpe8t" path="res://fred.tscn" id="4_nsj46"]
 [ext_resource type="PackedScene" uid="uid://b0hc2367x8n47" path="res://tongue.tscn" id="5_aemg3"]
-[ext_resource type="PackedScene" uid="uid://doi8fr7k3rvb2" path="res://scenes/backgroundScenes/next_level_platform.tscn" id="6_xxcx7"]
 [ext_resource type="PackedScene" uid="uid://dlrbuaqc6ulsh" path="res://scenes/backgroundScenes/next_level_area.tscn" id="7_8kos3"]
 [ext_resource type="PackedScene" uid="uid://byntnulsa2y3j" path="res://scenes/MovingPlatformHorizontal.tscn" id="8_mif3s"]
 [ext_resource type="PackedScene" uid="uid://cqnkou8r3oh8t" path="res://scenes/MovingPlatformVertical.tscn" id="9_ow680"]
+[ext_resource type="Script" path="res://scripts/ui/UIManager.gd" id="10_k3r57"]
+[ext_resource type="Texture2D" uid="uid://c24qwvmitwq7s" path="res://assets/background/fourSeasonsPlatformer_ [tileset, version 2.0]/fourSeasonsPlatformer_ [tileset, version 2.0]/objects_/coin_.png" id="11_yr5e8"]
+[ext_resource type="PackedScene" uid="uid://5h3a0grtuw0e" path="res://scenes/Interactables/coin.tscn" id="12_grbul"]
 
 [node name="level_2_1" type="Node2D"]
 script = ExtResource("1_kbejx")
@@ -35,9 +37,6 @@ position = Vector2(401, 758)
 [node name="bottom_right" type="Node2D" parent="margins"]
 position = Vector2(1920, 1079)
 
-[node name="next_level_platform" parent="." instance=ExtResource("6_xxcx7")]
-position = Vector2(1566, 454)
-
 [node name="next_level_area" parent="." instance=ExtResource("7_8kos3")]
 position = Vector2(-10, -55)
 next_scene_path = "res://scenes/ui/MainMenu.tscn"
@@ -53,6 +52,38 @@ position = Vector2(796, 657)
 
 [node name="MovingPlatformVertical2" parent="." instance=ExtResource("9_ow680")]
 position = Vector2(1359, 605)
+
+[node name="UIManager" type="CanvasLayer" parent="."]
+script = ExtResource("10_k3r57")
+
+[node name="CoinIcon" type="Sprite2D" parent="UIManager"]
+position = Vector2(34, 26)
+scale = Vector2(3.09, 3)
+texture = ExtResource("11_yr5e8")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CoinDisplay" type="Label" parent="UIManager"]
+offset_left = 58.0
+offset_top = 6.0
+offset_right = 102.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 28
+text = "0"
+
+[node name="CoinHolder" type="Node2D" parent="."]
+
+[node name="Coin" parent="CoinHolder" instance=ExtResource("12_grbul")]
+position = Vector2(571, 728)
+
+[node name="Coin2" parent="CoinHolder" instance=ExtResource("12_grbul")]
+position = Vector2(794, 618)
+
+[node name="Coin3" parent="CoinHolder" instance=ExtResource("12_grbul")]
+position = Vector2(1038, 612)
+
+[node name="Coin4" parent="CoinHolder" instance=ExtResource("12_grbul")]
+position = Vector2(1359, 563)
 
 [connection signal="is_moving" from="Fionna" to="Fred/Tongue" method="_on_fionna_is_moving"]
 [connection signal="is_hooked" from="Fred/Tongue" to="Fionna" method="_on_tongue_is_hooked"]

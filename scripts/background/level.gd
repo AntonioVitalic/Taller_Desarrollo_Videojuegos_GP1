@@ -33,5 +33,14 @@ func _ready():
 
 func show_next_level_platform():
 	var next_level_platform = next_level_platform_scene.instantiate()
-	next_level_platform.position = Vector2(1217, 648)
+	if current_level[0] == '1' && current_level[1] == '1':
+		next_level_platform.position = Vector2(1217, 648)
+	if current_level[0] == '1' && current_level[1] == '2':
+		next_level_platform.position = Vector2(1266, 600)
+	if current_level[0] == '2' && current_level[1] == '1':
+		next_level_platform.position = Vector2(1566, 454)
+	if current_level[0] == '2' && current_level[1] == '2':
+		next_level_platform.position = Vector2(1566, 454)
+	if current_level[0] == '3' && current_level[1] == '1':
+		next_level_platform.position = Vector2(1566, 454)
 	add_child(next_level_platform)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://trt188mo8hbs"]
+[gd_scene load_steps=10 format=3 uid="uid://trt188mo8hbs"]
 
 [ext_resource type="Script" path="res://scripts/background/level.gd" id="1_isn3x"]
 [ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_dhbtt"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://b60ct8smlpe8t" path="res://fred.tscn" id="4_qwb61"]
 [ext_resource type="PackedScene" uid="uid://b0hc2367x8n47" path="res://tongue.tscn" id="5_k2hqb"]
 [ext_resource type="PackedScene" uid="uid://dlrbuaqc6ulsh" path="res://scenes/backgroundScenes/next_level_area.tscn" id="6_plwoc"]
-[ext_resource type="PackedScene" uid="uid://doi8fr7k3rvb2" path="res://scenes/backgroundScenes/next_level_platform.tscn" id="7_abom0"]
+[ext_resource type="Script" path="res://scripts/ui/UIManager.gd" id="8_g2djs"]
+[ext_resource type="Texture2D" uid="uid://c24qwvmitwq7s" path="res://assets/background/fourSeasonsPlatformer_ [tileset, version 2.0]/fourSeasonsPlatformer_ [tileset, version 2.0]/objects_/coin_.png" id="9_0hcgq"]
+[ext_resource type="PackedScene" uid="uid://5h3a0grtuw0e" path="res://scenes/Interactables/coin.tscn" id="10_ytrnp"]
 
 [node name="level_1_2" type="Node2D"]
 script = ExtResource("1_isn3x")
@@ -36,8 +38,37 @@ position = Vector2(1920, 1080)
 [node name="next_level_area" parent="." instance=ExtResource("6_plwoc")]
 next_scene_path = "res://scenes/backgroundScenes/level2_1.tscn"
 
-[node name="next_level_platform" parent="." instance=ExtResource("7_abom0")]
-position = Vector2(1266, 600)
+[node name="UIManager" type="CanvasLayer" parent="."]
+script = ExtResource("8_g2djs")
+
+[node name="CoinIcon" type="Sprite2D" parent="UIManager"]
+position = Vector2(34, 26)
+scale = Vector2(3.09, 3)
+texture = ExtResource("9_0hcgq")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CoinDisplay" type="Label" parent="UIManager"]
+offset_left = 58.0
+offset_top = 6.0
+offset_right = 102.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 28
+text = "0"
+
+[node name="CoinHolder" type="Node2D" parent="."]
+
+[node name="Coin" parent="CoinHolder" instance=ExtResource("10_ytrnp")]
+position = Vector2(560, 752)
+
+[node name="Coin2" parent="CoinHolder" instance=ExtResource("10_ytrnp")]
+position = Vector2(583, 752)
+
+[node name="Coin3" parent="CoinHolder" instance=ExtResource("10_ytrnp")]
+position = Vector2(606, 752)
+
+[node name="Coin4" parent="CoinHolder" instance=ExtResource("10_ytrnp")]
+position = Vector2(628, 752)
 
 [connection signal="is_moving" from="Fionna" to="Fred/Tongue" method="_on_fionna_is_moving"]
 [connection signal="is_hooked" from="Fred/Tongue" to="Fionna" method="_on_tongue_is_hooked"]
