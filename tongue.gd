@@ -6,6 +6,7 @@ var direction := Vector2(0,0)	# The direction in which the tongue was shot
 @onready var fionna = $Fionna
 @onready var timer = $Timer
 signal is_hooked(value)
+@onready var progress_bar = $CanvasLayer/MarginContainer/ProgressBar
 
 
 const SPEED = 2000	# The speed with which the tongue moves
@@ -33,7 +34,7 @@ func release() -> void:
 	timer.stop()
 
 func _physics_process(delta):
-	
+	update_tongue_bar()
 	if flying:
 		var distance_to_target = global_position.distance_to(target)
 		if distance_to_target > MAX_RANGE:
@@ -63,3 +64,6 @@ func _on_fionna_is_moving(value):
 func _on_timer_timeout():
 	release()
 	print("¡La lengua estuvo agarrada por mucho tiempo!")
+
+func update_tongue_bar():
+	progress_bar.value = timer.time_left/4 * 100

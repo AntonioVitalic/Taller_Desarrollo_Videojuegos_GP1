@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0hc2367x8n47"]
+[gd_scene load_steps=8 format=3 uid="uid://b0hc2367x8n47"]
 
 [ext_resource type="Script" path="res://tongue.gd" id="1_gm8cd"]
 [ext_resource type="Texture2D" uid="uid://bhgye6p04qb6x" path="res://assets/rana_fred/hookc.png" id="2_as6c6"]
@@ -10,6 +10,11 @@ radius = 6.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f857w"]
 radius = 2.99999
 height = 5.99999
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_020qx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8imic"]
+bg_color = Color(0.972549, 0, 0.0117647, 1)
 
 [node name="Tongue" type="Node2D"]
 script = ExtResource("1_gm8cd")
@@ -43,7 +48,25 @@ position = Vector2(-1.0848e-05, -3)
 shape = SubResource("CapsuleShape2D_f857w")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/MarginContainer"]
+custom_minimum_size = Vector2(700, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/background = SubResource("StyleBoxEmpty_020qx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8imic")
+value = 100.0
+show_percentage = false
 
 [connection signal="body_entered" from="Tip/CollisionArea" to="." method="_on_collision_area_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
