@@ -55,7 +55,7 @@ offset_top = 6.0
 offset_right = 102.0
 offset_bottom = 48.0
 theme_override_font_sizes/font_size = 28
-text = "0"
+text = "15"
 
 [node name="CoinHolder" type="Node2D" parent="."]
 

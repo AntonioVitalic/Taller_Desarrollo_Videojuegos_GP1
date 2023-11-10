@@ -11,5 +11,6 @@ func _get_configuration_warnings():
 
 
 func _on_body_entered(body):
+	GameManager.permanent_coins = GameManager.coins
 	if get_tree().change_scene_to_file(next_scene_path) != OK:
 		print("Error: Unavailable scene")
