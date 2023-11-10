@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://fvn8ynsed2kg"]
+[gd_scene load_steps=13 format=3 uid="uid://fvn8ynsed2kg"]
 
 [ext_resource type="Script" path="res://scripts/background/level.gd" id="1_kbejx"]
 [ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_m73vs"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://byntnulsa2y3j" path="res://scenes/MovingPlatformHorizontal.tscn" id="8_mif3s"]
 [ext_resource type="PackedScene" uid="uid://cqnkou8r3oh8t" path="res://scenes/MovingPlatformVertical.tscn" id="9_ow680"]
 [ext_resource type="Script" path="res://scripts/ui/UIManager.gd" id="10_k3r57"]
+[ext_resource type="PackedScene" uid="uid://daydnrlr4feio" path="res://scenes/ui/PauseMenu.tscn" id="11_seg76"]
 [ext_resource type="Texture2D" uid="uid://c24qwvmitwq7s" path="res://assets/background/fourSeasonsPlatformer_ [tileset, version 2.0]/fourSeasonsPlatformer_ [tileset, version 2.0]/objects_/coin_.png" id="11_yr5e8"]
 [ext_resource type="PackedScene" uid="uid://5h3a0grtuw0e" path="res://scenes/Interactables/coin.tscn" id="12_grbul"]
 
@@ -70,6 +71,8 @@ offset_right = 102.0
 offset_bottom = 48.0
 theme_override_font_sizes/font_size = 28
 text = "17"
+
+[node name="PauseMenu" parent="UIManager" instance=ExtResource("11_seg76")]
 
 [node name="CoinHolder" type="Node2D" parent="."]
 
