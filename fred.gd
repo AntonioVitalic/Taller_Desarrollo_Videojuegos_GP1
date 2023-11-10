@@ -7,7 +7,7 @@ const GRAVITY = 55				# Gravity applied every second
 const MAX_velocity = 2000		# Maximum velocity the player is allowed to move
 const FRICTION_AIR = 0.98		# The friction while airborne
 const FRICTION_GROUND = 0.85	# The friction while on the ground
-const Tongue_PULL = 50
+var tongue_PULL = 50
 @onready var camera= $Camera2D
 @onready var tongue = $Tongue
 
@@ -15,14 +15,17 @@ var Tongue_velocity := Vector2(0,0)
 var can_jump = false			# Whether the player used their air-jump
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.pressed:
+	if Input.is_action_pressed("shoot_tongue"):
 			# We clicked the mouse -> shoot()
-			if not tongue.hooked:
-				tongue.shoot(get_global_mouse_position())
-		else:
-			# We released the mouse -> release()
-			tongue.release()
+		if not tongue.hooked:
+			tongue.shoot(get_global_mouse_position())
+		tongue_PULL = 50
+		
+		if Input.is_action_pressed("lessen_tongue_pull"):
+			tongue_PULL = tongue_PULL/2
+	else:
+	# We released the mouse -> release()
+		tongue.release()
 
 # This function is called every physics frame
 func _physics_process(_delta: float) -> void:
@@ -34,7 +37,7 @@ func _physics_process(_delta: float) -> void:
 	# Hook physics
 	if tongue.hooked:
 		# `to_local(tongue.tip).normalized()` is the direction that the Tongue is pulling
-		Tongue_velocity = to_local(tongue.tip.global_position).normalized() * Tongue_PULL
+		Tongue_velocity = to_local(tongue.tip.global_position).normalized() * tongue_PULL
 		if Tongue_velocity.y > 0:
 			# Pulling down isn't as strong
 			Tongue_velocity.y *= 0.55
@@ -74,4 +77,3 @@ func set_camera_margins(top_left, bottom_right):
 	camera.limit_bottom = bottom_right.y
 	camera.limit_left = top_left.x
 	camera.limit_right = bottom_right.x
-
