@@ -27,12 +27,12 @@ position = Vector2(385, 585)
 scale = Vector2(0.7, 0.7)
 
 [node name="Fred" parent="." instance=ExtResource("4_41xsl")]
-position = Vector2(401, 758)
+position = Vector2(387.189, 738.974)
 
 [node name="Tongue" parent="Fred" instance=ExtResource("5_1mfqu")]
 
 [node name="static_enemy" parent="." instance=ExtResource("5_ercmh")]
-position = Vector2(750, 406)
+position = Vector2(813.039, 420.923)
 
 [node name="margins" type="Node2D" parent="."]
 
