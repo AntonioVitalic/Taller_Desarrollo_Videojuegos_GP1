@@ -7,6 +7,7 @@ var direction := Vector2(0,0)	# The direction in which the tongue was shot
 @onready var timer = $Timer
 signal is_hooked(value)
 @onready var progress_bar = $CanvasLayer/MarginContainer/ProgressBar
+@onready var collision_area = $Tip/CollisionArea
 
 
 const SPEED = 2000	# The speed with which the tongue moves
@@ -67,3 +68,18 @@ func _on_timer_timeout():
 
 func update_tongue_bar():
 	progress_bar.value = timer.time_left/4 * 100
+
+func _input(event):
+	if event.is_action_pressed("shoot_tongue"):
+		show()
+		collision_area.collision_layer = 1
+		collision_area.collision_mask = 17
+	if event.is_action_released("shoot_tongue"):
+		hide()
+		collision_area.collision_layer = 0
+		collision_area.collision_mask = 0
+
+func _ready():
+	hide()
+	collision_area.collision_layer = 0
+	collision_area.collision_mask = 0
