@@ -29,6 +29,7 @@ texture_mode = 1
 [node name="Tip" type="CharacterBody2D" parent="."]
 rotation = 1.5708
 collision_layer = 4
+collision_mask = 17
 
 [node name="Hook" type="Sprite2D" parent="Tip"]
 texture_repeat = 2
@@ -42,6 +43,7 @@ scale = Vector2(0.4, 0.334486)
 shape = SubResource("CapsuleShape2D_nc8wa")
 
 [node name="CollisionArea" type="Area2D" parent="Tip"]
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tip/CollisionArea"]
 position = Vector2(-1.0848e-05, -3)

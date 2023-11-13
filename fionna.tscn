@@ -130,6 +130,7 @@ graph_offset = Vector2(-139.876, -69)
 
 [node name="Fionna" type="CharacterBody2D" groups=["fly"]]
 position = Vector2(-1, -1)
+collision_layer = 16
 script = ExtResource("1_el4im")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
