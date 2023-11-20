@@ -1,0 +1,90 @@
+[gd_scene load_steps=2 format=3 uid="uid://rg5ty10af22f"]
+
+[ext_resource type="Script" path="res://credits.gd" id="1_78ety"]
+
+[node name="Credits" type="CanvasLayer"]
+script = ExtResource("1_78ety")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "
+[font_size=70][center][rainbow][wave]Credits[/wave][/rainbow][/center][/font_size]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[font_size=50][center][shake rate=20.0 level=5 connected=1]
+Gustavo Araya @Garayau - Programador
+Ariel León @Ycht - Diseñador y programador
+Oscar Salazar @jaker320 - Programador y beta tester
+Antonio Vitalic @AntonioVitalic - Programador
+[/shake][/center][/font_size]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"
+scroll_active = false
