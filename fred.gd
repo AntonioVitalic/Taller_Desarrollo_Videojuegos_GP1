@@ -52,7 +52,15 @@ func _physics_process(_delta: float) -> void:
 	#move_and_slide(velocity, Vector2.UP)	# Actually apply all the forces
 	move_and_slide()	# Actually apply all the forces
 	# ^ This is done so we don't build up walk velocity over time
-
+	for i in get_slide_collision_count():
+			var collision = get_slide_collision(i)
+			if(collision.get_collider() is TileMap):
+				var tileMap = collision.get_collider() as TileMap
+				var cords = tileMap.local_to_map(collision.get_position()/tileMap.scale.x)
+				var data = tileMap.get_cell_tile_data(0, cords)
+				
+				if data and data.get_custom_data("DAMAGE"):
+					get_tree().reload_current_scene()
 	# Manage friction and refresh jump and stuff
 	velocity.y = clamp(velocity.y, -MAX_velocity, MAX_velocity)	# Make sure we are in our limits
 	velocity.x = clamp(velocity.x, -MAX_velocity, MAX_velocity)

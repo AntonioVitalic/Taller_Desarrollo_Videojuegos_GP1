@@ -9,6 +9,7 @@ radius = 6.0
 height = 26.0
 
 [node name="caster_enemy" type="StaticBody2D"]
+collision_mask = 17
 script = ExtResource("1_xtoub")
 bullet = ExtResource("2_7qcxm")
 
@@ -23,6 +24,7 @@ shape = SubResource("CapsuleShape2D_ot23e")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(329, 0)
+collision_mask = 17
 
 [node name="Spawn-bullet" type="Marker2D" parent="."]
 position = Vector2(15, 0)

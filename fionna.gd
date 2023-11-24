@@ -32,6 +32,16 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, speed*move_inputx, acceleration * delta)
 		velocity.y = move_toward(velocity.y, speed*move_inputy, acceleration*delta)
 		move_and_slide()
+		for i in get_slide_collision_count():
+			var collision = get_slide_collision(i)
+			if(collision.get_collider() is TileMap):
+				var tileMap = collision.get_collider() as TileMap
+				var cords = tileMap.local_to_map(collision.get_position()/tileMap.scale.x)
+				var data = tileMap.get_cell_tile_data(0, cords)
+				
+				if data and data.get_custom_data("DAMAGE"):
+					get_tree().reload_current_scene()
+
 	
 	#animation
 		if velocity.x != 0:
