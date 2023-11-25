@@ -70,7 +70,7 @@ offset_top = 6.0
 offset_right = 102.0
 offset_bottom = 48.0
 theme_override_font_sizes/font_size = 28
-text = "17"
+text = "20"
 
 [node name="PauseMenu" parent="UIManager" instance=ExtResource("11_seg76")]
 

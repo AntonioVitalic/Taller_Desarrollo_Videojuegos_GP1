@@ -70,16 +70,16 @@ text = "14"
 [node name="CoinHolder" type="Node2D" parent="."]
 
 [node name="Coin" parent="CoinHolder" instance=ExtResource("12_p66yn")]
-position = Vector2(1294.6, 654.644)
+position = Vector2(497, 646)
 
 [node name="Coin2" parent="CoinHolder" instance=ExtResource("12_p66yn")]
-position = Vector2(823.298, 492.524)
+position = Vector2(1297, 639)
 
 [node name="Coin3" parent="CoinHolder" instance=ExtResource("12_p66yn")]
-position = Vector2(940.726, 496.428)
+position = Vector2(1136, 356)
 
 [node name="Coin4" parent="CoinHolder" instance=ExtResource("12_p66yn")]
-position = Vector2(1082.29, 499.251)
+position = Vector2(693, 437)
 
 [connection signal="is_moving" from="Fionna" to="Fred/Tongue" method="_on_fionna_is_moving"]
 [connection signal="is_hooked" from="Fred/Tongue" to="Fionna" method="_on_tongue_is_hooked"]

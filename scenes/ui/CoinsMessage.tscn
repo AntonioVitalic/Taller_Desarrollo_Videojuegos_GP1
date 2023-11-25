@@ -3,17 +3,19 @@
 [ext_resource type="Script" path="res://scripts/ui/CoinsMessage.gd" id="1_wei0r"]
 
 [node name="CoinsMessage" type="MarginContainer"]
-anchors_preset = -1
-anchor_left = 0.453
-anchor_top = 0.457
-anchor_right = 0.578
-anchor_bottom = 0.577
-offset_left = -104.76
-offset_top = 9.43997
-offset_right = 140.24
-offset_bottom = -19.16
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -242.5
+offset_top = -50.5
+offset_right = 242.5
+offset_bottom = 50.5
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_wei0r")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
