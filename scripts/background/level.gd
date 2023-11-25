@@ -43,4 +43,6 @@ func show_next_level_platform():
 		next_level_platform.position = Vector2(1566, 454)
 	if current_level[0] == '3' && current_level[1] == '1':
 		next_level_platform.position = Vector2(1566, 454)
+	if current_level[0] == '3' && current_level[1] == '2':
+		next_level_platform.position = Vector2(1566, 454)
 	add_child(next_level_platform)

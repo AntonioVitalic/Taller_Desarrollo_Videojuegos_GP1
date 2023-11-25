@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://da2mcnhdonf8i"]
+
+[node name="caster_enemy_left" type="Node2D"]

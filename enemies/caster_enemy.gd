@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 @export var bullet : PackedScene
+
 var abletoshoot :bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,6 +20,7 @@ func _process(delta):
 
 func shoot():
 	var newbullet = bullet.instantiate()
+	
 	newbullet.global_position = $"Spawn-bullet".global_position
 	get_parent().add_child(newbullet)
 	
