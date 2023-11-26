@@ -11,3 +11,6 @@ func _ready():
 
 func _process(delta):
 	scroll_bar.value += 1.0
+	
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().change_scene_to_file("res://scenes/ui/MainMenu.tscn")
