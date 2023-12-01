@@ -64,7 +64,6 @@ func _on_fionna_is_moving(value):
 	moving = value
 func _on_timer_timeout():
 	release()
-	print("¡La lengua estuvo agarrada por mucho tiempo!")
 
 func update_tongue_bar():
 	progress_bar.value = timer.time_left/4 * 100

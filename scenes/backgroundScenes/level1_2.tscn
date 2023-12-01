@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://trt188mo8hbs"]
+[gd_scene load_steps=12 format=3 uid="uid://trt188mo8hbs"]
 
 [ext_resource type="Script" path="res://scripts/background/level.gd" id="1_isn3x"]
 [ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_dhbtt"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c24qwvmitwq7s" path="res://assets/background/fourSeasonsPlatformer_ [tileset, version 2.0]/fourSeasonsPlatformer_ [tileset, version 2.0]/objects_/coin_.png" id="9_0hcgq"]
 [ext_resource type="PackedScene" uid="uid://daydnrlr4feio" path="res://scenes/ui/PauseMenu.tscn" id="9_p6xrj"]
 [ext_resource type="PackedScene" uid="uid://5h3a0grtuw0e" path="res://scenes/Interactables/coin.tscn" id="10_ytrnp"]
+[ext_resource type="AudioStream" uid="uid://dhtvr7fqo6m3r" path="res://assets/audio/main_game_theme.mp3" id="11_kkoy5"]
 
 [node name="level_1_2" type="Node2D"]
 script = ExtResource("1_isn3x")
@@ -77,6 +78,10 @@ position = Vector2(941.142, 580.884)
 
 [node name="Coin4" parent="CoinHolder" instance=ExtResource("10_ytrnp")]
 position = Vector2(688.588, 425.984)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_kkoy5")
+autoplay = true
 
 [connection signal="is_moving" from="Fionna" to="Fred/Tongue" method="_on_fionna_is_moving"]
 [connection signal="is_hooked" from="Fred/Tongue" to="Fionna" method="_on_tongue_is_hooked"]

@@ -18,34 +18,38 @@ theme_override_constants/margin_right = 100
 layout_mode = 2
 bbcode_enabled = true
 text = "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 [font_size=70][center][rainbow][wave]Credits[/wave][/rainbow][/center][/font_size]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 [font_size=50][center][shake rate=20.0 level=5 connected=1]
-Gustavo Araya @Garayau - Programador
-Ariel León @Ycht - Diseñador y programador
-Oscar Salazar @jaker320 - Diseñador y Programador 
-Antonio Vitalic @AntonioVitalic - Programador
+- Developers -
+Gustavo Araya @Garayau - Programmer
+Ariel León @Ycht - Designer & Programmer
+Oscar Salazar @jaker320 - Designer & Programmer
+Antonio Vitalic @AntonioVitalic - Programmer
 Pablo Clavería - Beta tester
+
+- Music -
+Main Game Song Source: https://github.com/weimzh/syobon/tree/main/data/bgm
+Thanks to @weimzh
+
+This game uses Godot Engine, available under the following license:
+Copyright (c) 2014-present Godot Engine contributors. Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
+
 [/shake][/center][/font_size]
 
 

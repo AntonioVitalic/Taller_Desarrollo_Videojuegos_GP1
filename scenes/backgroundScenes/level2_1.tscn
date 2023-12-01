@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqruvxs3nu7kr"]
+[gd_scene load_steps=12 format=3 uid="uid://bqruvxs3nu7kr"]
 
 [ext_resource type="Script" path="res://scripts/background/level.gd" id="1_1vucj"]
 [ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_j4li6"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ccdrg5kgah6pb" path="res://enemies/static_enemy.tscn" id="5_ercmh"]
 [ext_resource type="PackedScene" uid="uid://dlrbuaqc6ulsh" path="res://scenes/backgroundScenes/next_level_area.tscn" id="8_7ulvh"]
 [ext_resource type="Script" path="res://scripts/ui/UIManager.gd" id="10_dovvg"]
+[ext_resource type="AudioStream" uid="uid://dhtvr7fqo6m3r" path="res://assets/audio/main_game_theme.mp3" id="11_gbpnl"]
 [ext_resource type="Texture2D" uid="uid://c24qwvmitwq7s" path="res://assets/background/fourSeasonsPlatformer_ [tileset, version 2.0]/fourSeasonsPlatformer_ [tileset, version 2.0]/objects_/coin_.png" id="11_kx4nq"]
 [ext_resource type="PackedScene" uid="uid://5h3a0grtuw0e" path="res://scenes/Interactables/coin.tscn" id="12_p66yn"]
 
@@ -80,6 +81,10 @@ position = Vector2(1136, 356)
 
 [node name="Coin4" parent="CoinHolder" instance=ExtResource("12_p66yn")]
 position = Vector2(693, 437)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_gbpnl")
+autoplay = true
 
 [connection signal="is_moving" from="Fionna" to="Fred/Tongue" method="_on_fionna_is_moving"]
 [connection signal="is_hooked" from="Fred/Tongue" to="Fionna" method="_on_tongue_is_hooked"]
