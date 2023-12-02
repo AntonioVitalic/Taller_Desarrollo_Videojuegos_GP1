@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://scripts/ui/UIManager.gd" id="8_fqwd6"]
 [ext_resource type="Texture2D" uid="uid://c24qwvmitwq7s" path="res://assets/background/fourSeasonsPlatformer_ [tileset, version 2.0]/fourSeasonsPlatformer_ [tileset, version 2.0]/objects_/coin_.png" id="8_he4xu"]
 [ext_resource type="PackedScene" uid="uid://dlrbuaqc6ulsh" path="res://scenes/backgroundScenes/next_level_area.tscn" id="10_82gpl"]
-[ext_resource type="PackedScene" uid="uid://bb2g6vnu5qdok" path="res://scenes/ui/CoinsMessage.tscn" id="10_hvttg"]
+[ext_resource type="Texture2D" uid="uid://vdmxheqd24c8" path="res://assets/ui/symbols/i.png" id="10_j4ghm"]
 [ext_resource type="PackedScene" uid="uid://daydnrlr4feio" path="res://scenes/ui/PauseMenu.tscn" id="10_s386u"]
 [ext_resource type="AudioStream" uid="uid://dhtvr7fqo6m3r" path="res://assets/audio/main_game_theme.mp3" id="12_f2ewi"]
 
@@ -75,12 +75,6 @@ position = Vector2(1921, 1080)
 [node name="UIManager" type="CanvasLayer" parent="."]
 script = ExtResource("8_fqwd6")
 
-[node name="CoinsMessage" parent="UIManager" instance=ExtResource("10_hvttg")]
-offset_left = -240.0
-offset_top = -24.0
-offset_right = 245.0
-offset_bottom = 77.0
-
 [node name="CoinIcon" type="Sprite2D" parent="UIManager"]
 position = Vector2(34, 26)
 scale = Vector2(3.09, 3)
@@ -98,6 +92,18 @@ text = "0"
 
 [node name="PauseMenu" parent="UIManager" instance=ExtResource("10_s386u")]
 
+[node name="Info" type="Button" parent="UIManager"]
+offset_left = 1878.0
+offset_top = 12.0
+offset_right = 1908.0
+offset_bottom = 43.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="UIManager/Info"]
+position = Vector2(15, 15)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("10_j4ghm")
+
 [node name="next_level_area" parent="." instance=ExtResource("10_82gpl")]
 next_scene_path = "res://scenes/backgroundScenes/level1_2.tscn"
 
@@ -107,3 +113,4 @@ autoplay = true
 
 [connection signal="is_moving" from="Fionna" to="Fred/Tongue" method="_on_fionna_is_moving"]
 [connection signal="is_hooked" from="Fred/Tongue" to="Fionna" method="_on_tongue_is_hooked"]
+[connection signal="pressed" from="UIManager/Info" to="." method="_on_info_pressed"]

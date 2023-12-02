@@ -1,31 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://bb2g6vnu5qdok"]
+[gd_scene load_steps=2 format=3 uid="uid://brfegql02ijxj"]
 
-[ext_resource type="Script" path="res://scripts/ui/InfoMessage.gd" id="1_snxf6"]
+[ext_resource type="Script" path="res://scripts/ui/InfoMessage.gd" id="1_2qhhr"]
 
-[node name="CoinsMessage" type="Control"]
+[node name="EnemiesMessage" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-script = ExtResource("1_snxf6")
+script = ExtResource("1_2qhhr")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -232.5
-offset_top = -39.0
-offset_right = 232.5
-offset_bottom = 39.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -40,12 +36,10 @@ size_flags_vertical = 4
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Collect all the coins to spawn a platform for the next level"
+text = "Be careful with the enemies, monsters and traps"
 
 [node name="ok_button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "OK"
-
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ok_button" to="." method="_on_ok_button_pressed"]

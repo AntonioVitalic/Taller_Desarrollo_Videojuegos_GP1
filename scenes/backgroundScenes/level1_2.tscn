@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://trt188mo8hbs"]
+[gd_scene load_steps=13 format=3 uid="uid://trt188mo8hbs"]
 
 [ext_resource type="Script" path="res://scripts/background/level.gd" id="1_isn3x"]
 [ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="2_dhbtt"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scripts/ui/UIManager.gd" id="8_g2djs"]
 [ext_resource type="Texture2D" uid="uid://c24qwvmitwq7s" path="res://assets/background/fourSeasonsPlatformer_ [tileset, version 2.0]/fourSeasonsPlatformer_ [tileset, version 2.0]/objects_/coin_.png" id="9_0hcgq"]
 [ext_resource type="PackedScene" uid="uid://daydnrlr4feio" path="res://scenes/ui/PauseMenu.tscn" id="9_p6xrj"]
+[ext_resource type="Texture2D" uid="uid://vdmxheqd24c8" path="res://assets/ui/symbols/i.png" id="10_c2tfl"]
 [ext_resource type="PackedScene" uid="uid://5h3a0grtuw0e" path="res://scenes/Interactables/coin.tscn" id="10_ytrnp"]
 [ext_resource type="AudioStream" uid="uid://dhtvr7fqo6m3r" path="res://assets/audio/main_game_theme.mp3" id="11_kkoy5"]
 
@@ -64,6 +65,18 @@ offset_left = 3.0
 offset_top = 53.0
 offset_right = 3.0
 offset_bottom = 53.0
+
+[node name="Info" type="Button" parent="UIManager"]
+offset_left = 1878.0
+offset_top = 12.0
+offset_right = 1908.0
+offset_bottom = 43.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="UIManager/Info"]
+position = Vector2(15, 15)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("10_c2tfl")
 
 [node name="CoinHolder" type="Node2D" parent="."]
 

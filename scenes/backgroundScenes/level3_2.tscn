@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c3xm8wouiygcg"]
+[gd_scene load_steps=15 format=3 uid="uid://c3xm8wouiygcg"]
 
 [ext_resource type="TileSet" uid="uid://ditbsoabmcsvt" path="res://assets/background/tileset.tres" id="1_41tj3"]
 [ext_resource type="Script" path="res://scripts/background/level.gd" id="1_ffwqm"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c24qwvmitwq7s" path="res://assets/background/fourSeasonsPlatformer_ [tileset, version 2.0]/fourSeasonsPlatformer_ [tileset, version 2.0]/objects_/coin_.png" id="7_q677c"]
 [ext_resource type="PackedScene" uid="uid://daydnrlr4feio" path="res://scenes/ui/PauseMenu.tscn" id="8_hqwwv"]
 [ext_resource type="PackedScene" uid="uid://5h3a0grtuw0e" path="res://scenes/Interactables/coin.tscn" id="9_lcfkx"]
+[ext_resource type="Texture2D" uid="uid://vdmxheqd24c8" path="res://assets/ui/symbols/i.png" id="10_orv6r"]
 [ext_resource type="PackedScene" uid="uid://bxt8xt2l8vblu" path="res://enemies/caster_enemy.tscn" id="11_m8cpn"]
 [ext_resource type="PackedScene" uid="uid://buysx387qclup" path="res://scenes/Interactables/bullet_left.tscn" id="12_64cds"]
 [ext_resource type="AudioStream" uid="uid://dhtvr7fqo6m3r" path="res://assets/audio/main_game_theme.mp3" id="13_cx3yu"]
@@ -62,6 +63,18 @@ theme_override_font_sizes/font_size = 28
 text = "24"
 
 [node name="PauseMenu" parent="UIManager" instance=ExtResource("8_hqwwv")]
+
+[node name="Info" type="Button" parent="UIManager"]
+offset_left = 1878.0
+offset_top = 12.0
+offset_right = 1908.0
+offset_bottom = 43.0
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="UIManager/Info"]
+position = Vector2(15, 15)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("10_orv6r")
 
 [node name="CoinHolder" type="Node2D" parent="."]
 
