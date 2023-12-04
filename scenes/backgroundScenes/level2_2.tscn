@@ -84,6 +84,7 @@ position = Vector2(1492.88, 653.968)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_ub4ss")
+autoplay = true
 
 [connection signal="is_moving" from="Fionna" to="Fred/Tongue" method="_on_fionna_is_moving"]
 [connection signal="is_hooked" from="Fred/Tongue" to="Fionna" method="_on_tongue_is_hooked"]
