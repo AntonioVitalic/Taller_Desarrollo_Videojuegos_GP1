@@ -128,6 +128,7 @@ scroll_limit_end = Vector2(1920, 1080)
 [node name="Node2D" parent="Camera2D/ParallaxBackground/ParallaxLayer" instance=ExtResource("4_215sd")]
 
 [node name="Interactions" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions"]
 shape = SubResource("RectangleShape2D_1ba7h")
