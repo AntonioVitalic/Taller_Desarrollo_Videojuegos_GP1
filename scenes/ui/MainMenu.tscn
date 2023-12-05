@@ -47,6 +47,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Credits"
 
+[node name="HowToPlayButtonMM" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "How to Play"
+
 [node name="QuitButtonMM" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2

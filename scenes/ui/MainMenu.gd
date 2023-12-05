@@ -4,6 +4,7 @@ extends MarginContainer
 @onready var settings_button_mm = %SettingsButtonMM
 @onready var credits_button_mm = %CreditsButtonMM
 @onready var quit_button_mm = %QuitButtonMM
+@onready var howtoplay_button_mm =%HowToPlayButtonMM
 
 func _ready() -> void:
 	start_button_mm.pressed.connect(_on_start_pressed)
@@ -18,6 +19,9 @@ func _on_settings_pressed():
 	
 func _on_credits_pressed():
 	LevelManager.go_to_credits()
+
+func _on_howtoplay_pressed():
+	LevelManager.go_to_howtoplay()
 	
 func _on_quit_pressed():
 	get_tree().quit()
