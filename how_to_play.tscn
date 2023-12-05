@@ -6,16 +6,18 @@
 script = ExtResource("1_afkd2")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_right = 20.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
 layout_mode = 2
-text = "
-
-
-
-[font_size=50][center][shake rate=20.0 level=5 connected=1]
+bbcode_enabled = true
+text = "[font_size=50][center][shake rate=20.0 level=5 connected=1]
 - How to Play -
 1) Fred, the frog, can't move with its legs, he can only shoot its tongue with the left click of your mouse.
 2) Fionna, the fly, can move with WASD, and she can be attached with Fred's tongue.
@@ -23,6 +25,5 @@ text = "
 4)  You only have 5 seconds to keep your tongue launched.
 5) Use your swing skills to reach platforms and get coins. Get all the coins to advance to the next level!
 6) Evade all enemies and be lucky not to fall into the void.
-
-[/shake][/center][/font_size]
-"
+[/shake][/center][/font_size]"
+scroll_active = false

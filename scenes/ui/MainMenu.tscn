@@ -56,3 +56,6 @@ text = "How to Play"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/SettingsButtonMM" to="." method="_on_settings_button_mm_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HowToPlayButtonMM" to="." method="_on_how_to_play_button_mm_pressed"]

@@ -14,14 +14,18 @@ func _ready() -> void:
 func _on_start_pressed():
 	LevelManager.start_game()
 	
-func _on_settings_pressed():
-	pass
 	
 func _on_credits_pressed():
 	LevelManager.go_to_credits()
 
-func _on_howtoplay_pressed():
-	LevelManager.go_to_howtoplay()
 	
 func _on_quit_pressed():
 	get_tree().quit()
+
+
+func _on_settings_button_mm_pressed():
+	get_tree().change_scene_to_file("res://scenes/ui/option.tscn")
+
+
+func _on_how_to_play_button_mm_pressed():
+	get_tree().change_scene_to_file("res://how_to_play.tscn")
