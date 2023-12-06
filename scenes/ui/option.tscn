@@ -42,7 +42,7 @@ text = "Background Music
 [node name="Background_music" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_rh6tt")]
 layout_mode = 2
 size_flags_horizontal = 1
-bus_name = "Background Music"
+bus_name = "Background music"
 
 [node name="Back" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

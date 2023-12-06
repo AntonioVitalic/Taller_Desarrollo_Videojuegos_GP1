@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://de162qjng0dqa"]
+[gd_scene load_steps=4 format=3 uid="uid://de162qjng0dqa"]
 
 [ext_resource type="Script" path="res://scenes/ui/MainMenu.gd" id="1_0nfrm"]
+[ext_resource type="PackedScene" uid="uid://bw87okv5nwtl" path="res://scenes/ui/option.tscn" id="2_j0gie"]
 
 [sub_resource type="Theme" id="Theme_qtfh5"]
 
@@ -56,6 +57,9 @@ text = "How to Play"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
+
+[node name="volumeMenu" parent="." instance=ExtResource("2_j0gie")]
+layout_mode = 2
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/SettingsButtonMM" to="." method="_on_settings_button_mm_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HowToPlayButtonMM" to="." method="_on_how_to_play_button_mm_pressed"]

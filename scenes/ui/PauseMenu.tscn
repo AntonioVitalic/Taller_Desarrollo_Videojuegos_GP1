@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://daydnrlr4feio"]
+[gd_scene load_steps=4 format=3 uid="uid://daydnrlr4feio"]
 
 [ext_resource type="Script" path="res://scenes/ui/PauseMenu.gd" id="1_e0h05"]
 [ext_resource type="PackedScene" uid="uid://de162qjng0dqa" path="res://scenes/ui/MainMenu.tscn" id="2_gg1sq"]
+[ext_resource type="PackedScene" uid="uid://bw87okv5nwtl" path="res://scenes/ui/option.tscn" id="3_nes00"]
 
 [node name="PauseMenu" type="MarginContainer"]
 process_mode = 3
@@ -53,3 +54,8 @@ text = "Menu"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
+
+[node name="volumeMenu" parent="." instance=ExtResource("3_nes00")]
+layout_mode = 2
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/SettingsButtonPM" to="." method="_on_settings_button_pm_pressed"]

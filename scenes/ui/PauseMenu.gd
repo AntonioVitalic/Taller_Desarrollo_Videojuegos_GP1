@@ -5,6 +5,8 @@ extends MarginContainer
 @onready var settings_button_pm = %SettingsButtonPM
 @onready var menu_button_pm = %MenuButtonPM
 @onready var quit_button_pm = %QuitButtonPM
+@onready var volume_menu = $volumeMenu
+@onready var panel_container = $PanelContainer
 
 @export var main_menu: PackedScene
 
@@ -14,7 +16,7 @@ func _ready() -> void:
 	settings_button_pm.pressed.connect(_on_settings_pressed)
 	menu_button_pm.pressed.connect(_on_menu_pressed)
 	quit_button_pm.pressed.connect(_on_quit_pressed)
-	
+	volume_menu.hide()
 	hide()
 	
 func _input(event: InputEvent) -> void:
@@ -32,7 +34,8 @@ func _on_restart_pressed():
 	get_tree().paused = false
 	
 func _on_settings_pressed():
-	pass
+	volume_menu.show()
+	panel_container.hide()
 	
 func _on_menu_pressed():
 	GameManager.coins = 0

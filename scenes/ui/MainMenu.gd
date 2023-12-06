@@ -5,11 +5,15 @@ extends MarginContainer
 @onready var credits_button_mm = %CreditsButtonMM
 @onready var quit_button_mm = %QuitButtonMM
 @onready var howtoplay_button_mm =%HowToPlayButtonMM
+@onready var panel_container = $PanelContainer
+@onready var volume_menu = $volumeMenu
 
 func _ready() -> void:
 	start_button_mm.pressed.connect(_on_start_pressed)
 	quit_button_mm.pressed.connect(_on_quit_pressed)
 	credits_button_mm.pressed.connect(_on_credits_pressed)
+	volume_menu.hide()
+	
 	
 func _on_start_pressed():
 	LevelManager.start_game()
@@ -24,7 +28,8 @@ func _on_quit_pressed():
 
 
 func _on_settings_button_mm_pressed():
-	get_tree().change_scene_to_file("res://scenes/ui/option.tscn")
+	volume_menu.show()
+	panel_container.hide()
 
 
 func _on_how_to_play_button_mm_pressed():
