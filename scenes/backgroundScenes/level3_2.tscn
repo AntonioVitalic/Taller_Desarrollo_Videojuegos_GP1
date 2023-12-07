@@ -42,7 +42,7 @@ position = Vector2(1920, 1079)
 
 [node name="next_level_area" parent="." instance=ExtResource("5_o0nfr")]
 position = Vector2(-10, -55)
-next_scene_path = "res://scenes/backgroundScenes/level3_1.tscn"
+next_scene_path = "res://scenes/ui/MainMenu.tscn"
 
 [node name="UIManager" type="CanvasLayer" parent="."]
 script = ExtResource("6_si4j7")

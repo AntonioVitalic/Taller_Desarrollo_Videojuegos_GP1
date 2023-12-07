@@ -42,7 +42,7 @@ position = Vector2(1920, 1079)
 
 [node name="next_level_area" parent="." instance=ExtResource("7_8kos3")]
 position = Vector2(-10, -55)
-next_scene_path = "res://scenes/ui/MainMenu.tscn"
+next_scene_path = "res://scenes/backgroundScenes/level3_2.tscn"
 
 [node name="MovingPlatformHorizontal" parent="." instance=ExtResource("8_mif3s")]
 position = Vector2(571, 765)
